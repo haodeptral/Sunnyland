@@ -6,6 +6,7 @@ func _ready():
 	self.visible = false
 
 func fade_screen(fade_to_black: bool,durration: int ,callback: Callable) -> void:
+	#print("Run?")
 	self.visible = true
 
 	var fader_color = 1.0 if fade_to_black else 0.0
@@ -18,3 +19,4 @@ func fade_screen(fade_to_black: bool,durration: int ,callback: Callable) -> void
 	
 	if not callback.is_null():
 		fade_tween.tween_callback(callback)
+	#print("Run2")

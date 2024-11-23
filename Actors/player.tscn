@@ -164,7 +164,7 @@ shape = SubResource("CapsuleShape2D_syf3k")
 wait_time = 2.0
 one_shot = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["buttonContainer"]]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3

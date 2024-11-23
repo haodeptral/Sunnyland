@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c60dovlbpwlby"]
+[gd_scene load_steps=33 format=3 uid="uid://c60dovlbpwlby"]
 
 [ext_resource type="Script" path="res://UserInterface/hud.gd" id="1_jm052"]
 [ext_resource type="PackedScene" uid="uid://cmblqe6t82d2w" path="res://UserInterface/Cherry.tscn" id="1_w4ght"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://beijvypnh0t8" path="res://assets/Sprites/GUI/Button.png" id="5_li10v"]
 [ext_resource type="Texture2D" uid="uid://bv5r1j6yo7bv8" path="res://assets/Sprites/GUI/Window.png" id="6_l51l4"]
 [ext_resource type="Texture2D" uid="uid://df8tvf71ttfhy" path="res://assets/Sprites/GUI/BG.png" id="7_vohab"]
+[ext_resource type="PackedScene" uid="uid://dinpppgyybxc5" path="res://UserInterface/fader.tscn" id="8_35vg5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pelfa"]
 font = ExtResource("3_aqb1h")
@@ -172,6 +173,8 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="PauseScreen" type="ColorRect" parent="."]
+process_mode = 3
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -242,7 +245,7 @@ text = "resume"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RestartButton2" type="TextureButton" parent="PauseScreen/PausedWIndow/Paused/VBoxContainer"]
+[node name="RestartButton" type="TextureButton" parent="PauseScreen/PausedWIndow/Paused/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = SubResource("AtlasTexture_a0nrb")
@@ -251,7 +254,7 @@ texture_hover = SubResource("AtlasTexture_iuwdp")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="PauseScreen/PausedWIndow/Paused/VBoxContainer/RestartButton2"]
+[node name="Label" type="Label" parent="PauseScreen/PausedWIndow/Paused/VBoxContainer/RestartButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -299,6 +302,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LevelComplete" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -370,7 +374,8 @@ texture = SubResource("AtlasTexture_pc02s")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="LevelComplete/TextureRect/Money"]
+[node name="MoneyLabel" type="Label" parent="LevelComplete/TextureRect/Money"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -432,3 +437,17 @@ texture_pressed = SubResource("AtlasTexture_l5yr7")
 texture_hover = SubResource("AtlasTexture_q2mtv")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="fader" parent="." instance=ExtResource("8_35vg5")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[connection signal="button_down" from="PauseScreen/PausedWIndow/Paused/VBoxContainer/ResumeButton" to="." method="resume"]
+[connection signal="button_down" from="PauseScreen/PausedWIndow/Paused/VBoxContainer/RestartButton" to="." method="restart"]
+[connection signal="button_down" from="LevelComplete/TextureRect/HBoxContainer/Home" to="." method="home"]
+[connection signal="button_down" from="LevelComplete/TextureRect/HBoxContainer/NextLevel" to="." method="nextLevel"]
+[connection signal="button_down" from="LevelComplete/TextureRect/HBoxContainer/LevelSelect" to="." method="levelSelect"]
