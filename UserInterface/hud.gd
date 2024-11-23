@@ -1,6 +1,6 @@
 extends Control
 
-@onready var health_box_container = $HealthBoxContainer
+@onready var health_box_container = $Container/HealthBoxContainer
 
 const HEALTH_ICON = preload("res://UserInterface/Cherry.tscn")
 
@@ -10,7 +10,7 @@ func _ready():
 
 func _on_coin_collected(value) -> void:
 	Event.total_coin += value
-	$CoinContainer/Label.text = "%d" % Event.total_coin
+	$Container/CoinContainer/Label.text = "%d" % Event.total_coin
 
 func _on_health_changed(old_health, new_health, max_health) -> void:
 	var lives_left = health_box_container.get_child_count()

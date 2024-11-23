@@ -107,6 +107,7 @@ layer_1/tile_data = PackedInt32Array(1179670, 1, 131072, 1179671, 1, 196608, 117
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("6_k46ly")]
+visible = false
 
 [node name="PushablePlatforms" type="Node" parent="."]
 
