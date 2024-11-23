@@ -1,0 +1,135 @@
+[gd_scene load_steps=26 format=3 uid="uid://3pxyrbtj4a7f"]
+
+[ext_resource type="Script" path="res://dragon.gd" id="1_pxoxg"]
+[ext_resource type="Texture2D" uid="uid://csvi5veffbyku" path="res://assets/Sprites/Characters/boss-dragon/breath/_0000_Layer-1.png" id="2_p3u0p"]
+[ext_resource type="Texture2D" uid="uid://q78kpqs5jemy" path="res://assets/Sprites/Characters/boss-dragon/breath/_0001_Layer-2.png" id="3_esw22"]
+[ext_resource type="Texture2D" uid="uid://b47ygp0680s8m" path="res://assets/Sprites/Characters/boss-dragon/breath/_0002_Layer-3.png" id="4_ogpmh"]
+[ext_resource type="Texture2D" uid="uid://cgacvl1mjw0l8" path="res://assets/Sprites/Characters/boss-dragon/breath/_0003_Layer-4.png" id="5_cssed"]
+[ext_resource type="Texture2D" uid="uid://di7uoqk3d7mt7" path="res://assets/Sprites/Characters/boss-dragon/breath/_0004_Layer-5.png" id="6_rhx6v"]
+[ext_resource type="Texture2D" uid="uid://jyujpk66cgvn" path="res://assets/Sprites/Characters/boss-dragon/breath/_0005_Layer-6.png" id="7_clvyt"]
+[ext_resource type="Texture2D" uid="uid://bgbr34jfenxs1" path="res://assets/Sprites/Characters/boss-dragon/breath/_0006_Layer-7.png" id="8_escx0"]
+[ext_resource type="Texture2D" uid="uid://1b8oxbssriov" path="res://assets/Sprites/Characters/boss-dragon/idle/_0000_Layer-1.png" id="9_j27em"]
+[ext_resource type="Texture2D" uid="uid://dt2q4vpm6fkdl" path="res://assets/Sprites/Characters/boss-dragon/idle/_0001_Layer-2.png" id="10_qayoj"]
+[ext_resource type="Texture2D" uid="uid://ctk25vkobfp3c" path="res://assets/Sprites/Characters/boss-dragon/idle/_0002_Layer-3.png" id="11_jokmj"]
+[ext_resource type="Texture2D" uid="uid://cn3bxbjgvnjdj" path="res://assets/Sprites/Characters/boss-dragon/idle/_0003_Layer-4.png" id="12_kgra0"]
+[ext_resource type="Texture2D" uid="uid://b8x6hqxp56te8" path="res://assets/Sprites/Characters/boss-dragon/idle/_0004_Layer-5.png" id="13_seu51"]
+[ext_resource type="Texture2D" uid="uid://dqsatejdp07fl" path="res://assets/Sprites/Characters/boss-dragon/idle/_0005_Layer-6.png" id="14_vsoci"]
+[ext_resource type="Texture2D" uid="uid://dfacd204a2y6y" path="res://assets/Sprites/Characters/boss-dragon/tail/_0000_Layer-1.png" id="15_c5df5"]
+[ext_resource type="Texture2D" uid="uid://cy06rafsgudhc" path="res://assets/Sprites/Characters/boss-dragon/tail/_0001_Layer-2.png" id="16_p66n7"]
+[ext_resource type="Texture2D" uid="uid://kdj5v27tjr7w" path="res://assets/Sprites/Characters/boss-dragon/tail/_0002_Layer-3.png" id="17_0qgfn"]
+[ext_resource type="Texture2D" uid="uid://d4lvtlddsnhdm" path="res://assets/Sprites/Characters/boss-dragon/tail/_0003_Layer-4.png" id="18_nbnm3"]
+[ext_resource type="Texture2D" uid="uid://bsrfcoxi2ywf" path="res://assets/Sprites/Characters/boss-dragon/tail/_0004_Layer-5.png" id="19_1x4lq"]
+[ext_resource type="Texture2D" uid="uid://c4ptiqe7xmq2t" path="res://assets/Sprites/Characters/boss-dragon/tail/_0005_Layer-6.png" id="20_pcfto"]
+[ext_resource type="Texture2D" uid="uid://dtnf7p4rfqnxq" path="res://assets/Sprites/Characters/boss-dragon/tail/_0006_Layer-7.png" id="21_ncq7s"]
+[ext_resource type="Texture2D" uid="uid://dyfd7do84dsj3" path="res://assets/Sprites/Characters/boss-dragon/tail/_0007_Layer-8.png" id="22_g8w5m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lm3xx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p3u0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_esw22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ogpmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cssed")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rhx6v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_clvyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_escx0")
+}],
+"loop": true,
+"name": &"breath",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_j27em")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qayoj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_jokmj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kgra0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_seu51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_vsoci")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_c5df5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_p66n7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_0qgfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_nbnm3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_1x4lq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_pcfto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ncq7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_g8w5m")
+}],
+"loop": true,
+"name": &"tail",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7t8va"]
+size = Vector2(44, 23)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ycjdc"]
+radius = 94.2019
+
+[node name="Dragon" type="CharacterBody2D"]
+script = ExtResource("1_pxoxg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_lm3xx")
+animation = &"breath"
+autoplay = "idle"
+frame = 4
+frame_progress = 0.750255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(17, 20.5)
+shape = SubResource("RectangleShape2D_7t8va")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(13, 22)
+shape = SubResource("CircleShape2D_ycjdc")
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

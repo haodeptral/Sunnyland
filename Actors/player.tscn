@@ -1,0 +1,212 @@
+[gd_scene load_steps=31 format=3 uid="uid://ckt56b0r56sll"]
+
+[ext_resource type="Texture2D" uid="uid://biwf3xy64jf06" path="res://assets/Sprites/Characters/player/jump/player-jump-2.png" id="1_6xvtp"]
+[ext_resource type="Script" path="res://Actors/player.gd" id="1_7dgss"]
+[ext_resource type="Texture2D" uid="uid://dxwoptki1qcvy" path="res://assets/Sprites/Characters/player/run/player-run-1.png" id="1_ogavf"]
+[ext_resource type="Texture2D" uid="uid://bftwra5kgujwn" path="res://assets/Sprites/Characters/player/hurt/player-hurt-1.png" id="2_0prj8"]
+[ext_resource type="Texture2D" uid="uid://c024kli58yuy4" path="res://assets/Sprites/Characters/player/run/player-run-2.png" id="2_646h8"]
+[ext_resource type="Texture2D" uid="uid://b8j5pff8ub2s3" path="res://assets/Sprites/Characters/player/hurt/player-hurt-2.png" id="3_g1s0c"]
+[ext_resource type="Texture2D" uid="uid://copfldkwk400x" path="res://assets/Sprites/Characters/player/run/player-run-3.png" id="3_ke5gw"]
+[ext_resource type="Texture2D" uid="uid://bj0dygv2p4x1t" path="res://assets/Sprites/Characters/player/idle/player-idle-1.png" id="4_8ft7d"]
+[ext_resource type="Texture2D" uid="uid://167017j6n0bf" path="res://assets/Sprites/Characters/player/run/player-run-4.png" id="4_17g4t"]
+[ext_resource type="Texture2D" uid="uid://cwrp50eri3ahh" path="res://assets/Sprites/Characters/player/run/player-run-5.png" id="5_4yi5p"]
+[ext_resource type="Texture2D" uid="uid://dkmy4786tnkx1" path="res://assets/Sprites/Characters/player/idle/player-idle-2.png" id="5_yvoy8"]
+[ext_resource type="Texture2D" uid="uid://c02u6kln31r11" path="res://assets/Sprites/Characters/player/idle/player-idle-3.png" id="6_badn1"]
+[ext_resource type="Texture2D" uid="uid://dfs3daul4x830" path="res://assets/Sprites/Characters/player/run/player-run-6.png" id="6_t7ka4"]
+[ext_resource type="Texture2D" uid="uid://kd3tv1gauytq" path="res://assets/Sprites/Characters/player/idle/player-idle-4.png" id="7_ixe2y"]
+[ext_resource type="Texture2D" uid="uid://0mrg7je31v7o" path="res://assets/Sprites/Characters/player/jump/player-jump-1.png" id="8_muyrj"]
+[ext_resource type="PackedScene" uid="uid://kktngreqjkox" path="res://Components/hit_box_component.tscn" id="16_xqcqs"]
+[ext_resource type="PackedScene" uid="uid://b5gugbvrilk8m" path="res://Components/hurt_box_component.tscn" id="17_tyw2w"]
+[ext_resource type="Texture2D" uid="uid://beijvypnh0t8" path="res://assets/Sprites/GUI/Button.png" id="18_061au"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d3x6c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6xvtp")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0prj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g1s0c")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8ft7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yvoy8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_badn1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ixe2y")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_muyrj")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ogavf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_646h8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ke5gw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_17g4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4yi5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_t7ka4")
+}],
+"loop": true,
+"name": &"run",
+"speed": 9.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rvqtj"]
+radius = 7.0
+height = 24.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sch5j"]
+size = Vector2(13, 2)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_syf3k"]
+radius = 7.0
+height = 24.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovipb"]
+atlas = ExtResource("18_061au")
+region = Rect2(197, 2716, 181, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5x1ri"]
+atlas = ExtResource("18_061au")
+region = Rect2(606, 2716, 181, 189)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jdon"]
+size = Vector2(181, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1h2p"]
+atlas = ExtResource("18_061au")
+region = Rect2(197, 2498, 181, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83mkp"]
+atlas = ExtResource("18_061au")
+region = Rect2(606, 2498, 181, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6nrq"]
+atlas = ExtResource("18_061au")
+region = Rect2(2148, 101, 181, 189)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dljq"]
+atlas = ExtResource("18_061au")
+region = Rect2(2557, 101, 181, 189)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14pcv"]
+size = Vector2(181, 189)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_7dgss")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d3x6c")
+animation = &"run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_rvqtj")
+
+[node name="HitBoxComponent" parent="." instance=ExtResource("16_xqcqs")]
+position = Vector2(-1, 14)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+self_modulate = Color(0.780392, 0, 0.807843, 1)
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_sch5j")
+
+[node name="HurtBoxComponent" parent="." instance=ExtResource("17_tyw2w")]
+collision_mask = 32
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBoxComponent"]
+visible = false
+modulate = Color(0.360784, 0.847059, 0.105882, 1)
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_syf3k")
+
+[node name="ReviveTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 20.0
+offset_top = 500.0
+offset_right = 60.0
+offset_bottom = 540.0
+
+[node name="MoveLeft" type="TouchScreenButton" parent="CanvasLayer/Control"]
+texture_normal = SubResource("AtlasTexture_ovipb")
+texture_pressed = SubResource("AtlasTexture_5x1ri")
+shape = SubResource("RectangleShape2D_1jdon")
+action = "move_left"
+
+[node name="Control2" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 250.0
+offset_top = 500.0
+offset_right = 290.0
+offset_bottom = 540.0
+
+[node name="MoveRight" type="TouchScreenButton" parent="CanvasLayer/Control2"]
+texture_normal = SubResource("AtlasTexture_e1h2p")
+texture_pressed = SubResource("AtlasTexture_83mkp")
+shape = SubResource("RectangleShape2D_1jdon")
+action = "move_right"
+
+[node name="Control3" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1050.0
+offset_top = 500.0
+offset_right = 1090.0
+offset_bottom = 540.0
+
+[node name="Jump" type="TouchScreenButton" parent="CanvasLayer/Control3"]
+position = Vector2(17, 4)
+texture_normal = SubResource("AtlasTexture_i6nrq")
+texture_pressed = SubResource("AtlasTexture_0dljq")
+shape = SubResource("RectangleShape2D_14pcv")
+action = "jump"
+
+[connection signal="timeout" from="ReviveTimer" to="." method="_on_revive_timer_timeout"]

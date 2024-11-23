@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://c60dovlbpwlby"]
+
+[ext_resource type="Script" path="res://UserInterface/hud.gd" id="1_jm052"]
+[ext_resource type="PackedScene" uid="uid://cmblqe6t82d2w" path="res://UserInterface/Cherry.tscn" id="1_w4ght"]
+[ext_resource type="Texture2D" uid="uid://tyb2gh1oosv1" path="res://assets/Sprites/Characters/gem/gem-1.png" id="2_3d0s5"]
+[ext_resource type="FontFile" uid="uid://bj8xco35bvbx0" path="res://assets/Others/Kenney Bold.ttf" id="3_aqb1h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pelfa"]
+font = ExtResource("3_aqb1h")
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jm052")
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -229.0
+offset_top = 24.0
+offset_right = -32.0
+offset_bottom = 136.0
+grow_horizontal = 0
+
+[node name="HealthBoxContainer" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+alignment = 2
+
+[node name="Cherry" parent="Container/HealthBoxContainer" instance=ExtResource("1_w4ght")]
+layout_mode = 2
+
+[node name="Cherry2" parent="Container/HealthBoxContainer" instance=ExtResource("1_w4ght")]
+layout_mode = 2
+
+[node name="Cherry3" parent="Container/HealthBoxContainer" instance=ExtResource("1_w4ght")]
+layout_mode = 2
+
+[node name="CoinContainer" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="Container/CoinContainer"]
+layout_mode = 2
+texture = ExtResource("2_3d0s5")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/CoinContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_pelfa")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

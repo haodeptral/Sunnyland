@@ -1,0 +1,137 @@
+[gd_scene load_steps=26 format=3 uid="uid://b45w022lnko75"]
+
+[ext_resource type="PackedScene" uid="uid://ckt56b0r56sll" path="res://Actors/player.tscn" id="1_332fi"]
+[ext_resource type="Texture2D" uid="uid://dbvlxemedwyuo" path="res://assets/Sprites/Characters/player/Fiery Imp/jump/Sprites/jump-4.png" id="2_wpw2w"]
+[ext_resource type="Texture2D" uid="uid://bfxrsi70l5e8y" path="res://assets/Sprites/Characters/player/Fiery Imp/jump/Sprites/jump-5.png" id="3_t04dn"]
+[ext_resource type="Texture2D" uid="uid://b8id50jm1hbf3" path="res://assets/Sprites/Characters/player/Fiery Imp/hurt/Sprites/hurt-1.png" id="4_kh7mg"]
+[ext_resource type="Texture2D" uid="uid://b7qbq5tskpaiq" path="res://assets/Sprites/Characters/player/Fiery Imp/hurt/Sprites/hurt-2.png" id="5_cf81o"]
+[ext_resource type="Texture2D" uid="uid://cyeufxs1yy4mp" path="res://assets/Sprites/Characters/player/Fiery Imp/idle/Sprites/idle-1.png" id="6_mvoj1"]
+[ext_resource type="Texture2D" uid="uid://dkb2hvh8s8hh5" path="res://assets/Sprites/Characters/player/Fiery Imp/idle/Sprites/idle-2.png" id="7_msrnd"]
+[ext_resource type="Texture2D" uid="uid://ccl4kwm5b8q8i" path="res://assets/Sprites/Characters/player/Fiery Imp/idle/Sprites/idle-3.png" id="8_0ccvd"]
+[ext_resource type="Texture2D" uid="uid://ovht2d2bmtn" path="res://assets/Sprites/Characters/player/Fiery Imp/idle/Sprites/idle-4.png" id="9_jrb52"]
+[ext_resource type="Texture2D" uid="uid://1h5dqjyas7yr" path="res://assets/Sprites/Characters/player/Fiery Imp/jump/Sprites/jump-1.png" id="10_7kowe"]
+[ext_resource type="Texture2D" uid="uid://dol75u3cf0u76" path="res://assets/Sprites/Characters/player/Fiery Imp/jump/Sprites/jump-2.png" id="11_ftw2p"]
+[ext_resource type="Texture2D" uid="uid://dkl0yjgxfjp0l" path="res://assets/Sprites/Characters/player/Fiery Imp/jump/Sprites/jump-3.png" id="12_ovdai"]
+[ext_resource type="Texture2D" uid="uid://bpk2l2vvlt5q8" path="res://assets/Sprites/Characters/player/Fiery Imp/run/Sprites/run-1.png" id="13_xpk00"]
+[ext_resource type="Texture2D" uid="uid://dxpklf33i3qg1" path="res://assets/Sprites/Characters/player/Fiery Imp/run/Sprites/run-2.png" id="14_ur7qc"]
+[ext_resource type="Texture2D" uid="uid://b2sm6437ogj0b" path="res://assets/Sprites/Characters/player/Fiery Imp/run/Sprites/run-3.png" id="15_mtsqe"]
+[ext_resource type="Texture2D" uid="uid://b11cmdt0wkhqv" path="res://assets/Sprites/Characters/player/Fiery Imp/run/Sprites/run-4.png" id="16_pyw0p"]
+[ext_resource type="Texture2D" uid="uid://b0yqyxkv2jiv3" path="res://assets/Sprites/Characters/player/Fiery Imp/run/Sprites/run-5.png" id="17_gyxym"]
+[ext_resource type="Texture2D" uid="uid://bcejqfx8hrcmi" path="res://assets/Sprites/Characters/player/Fiery Imp/run/Sprites/run-6.png" id="18_ilyfo"]
+[ext_resource type="Texture2D" uid="uid://bnum2eulyac6v" path="res://assets/Sprites/Characters/player/Fiery Imp/run/Sprites/run-7.png" id="19_eicyx"]
+[ext_resource type="Texture2D" uid="uid://boed04iugd2tp" path="res://assets/Sprites/Characters/player/Fiery Imp/run/Sprites/run-8.png" id="20_2acyq"]
+[ext_resource type="Texture2D" uid="uid://dffv33sxol5qm" path="res://assets/Sprites/Characters/player/Fiery Imp/shot/Sprites/shot-1.png" id="21_h174t"]
+[ext_resource type="Texture2D" uid="uid://csrr53frd5u6" path="res://assets/Sprites/Characters/player/Fiery Imp/shot/Sprites/shot-2.png" id="22_f6qra"]
+[ext_resource type="Texture2D" uid="uid://j6w8lopr61g8" path="res://assets/Sprites/Characters/player/Fiery Imp/shot/Sprites/shot-3.png" id="23_mt4og"]
+[ext_resource type="Texture2D" uid="uid://8q7wjymxmdvt" path="res://assets/Sprites/Characters/player/Fiery Imp/shot/Sprites/shot-4.png" id="24_da1de"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_txi6e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wpw2w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_t04dn")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kh7mg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cf81o")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_mvoj1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_msrnd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0ccvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jrb52")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_7kowe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ftw2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ovdai")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_xpk00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ur7qc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_mtsqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pyw0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_gyxym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ilyfo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_eicyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_2acyq")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_h174t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_f6qra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_mt4og")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_da1de")
+}],
+"loop": true,
+"name": &"Shoot",
+"speed": 5.0
+}]
+
+[node name="Player2" instance=ExtResource("1_332fi")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_txi6e")
+animation = &"Idle"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 10)
