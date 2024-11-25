@@ -1,10 +1,11 @@
-extends Actors
+extends CharacterBody2D
 class_name Player
 
 signal game_over
 
 @export var jump_impulse: float = 150.0
-
+var move_speed: float = 100.0
+var gravity: float = 200.0
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 const MAX_HEALTH = 5

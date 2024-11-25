@@ -159,8 +159,6 @@ next_level = ExtResource("13_v60tb")
 
 [node name="Player" parent="." instance=ExtResource("2_66qul")]
 position = Vector2(65, 288)
-move_speed = 150.0
-gravity = 350.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")

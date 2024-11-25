@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://ceurhyy16x5tf"]
+[gd_scene load_steps=11 format=3 uid="uid://ceurhyy16x5tf"]
 
 [ext_resource type="Texture2D" uid="uid://cbjvnw4je0p3x" path="res://assets/Sprites/Tiles/tileset.png" id="1_gf6nb"]
 [ext_resource type="PackedScene" uid="uid://kktngreqjkox" path="res://Components/hit_box_component.tscn" id="2_uriix"]
 [ext_resource type="PackedScene" uid="uid://dhfrkfc2ejp5t" path="res://UserInterface/bg.tscn" id="3_pa82u"]
 [ext_resource type="PackedScene" uid="uid://c60dovlbpwlby" path="res://UserInterface/hud.tscn" id="4_rd1om"]
-[ext_resource type="PackedScene" uid="uid://b45w022lnko75" path="res://Actors/player_2.tscn" id="5_q4mhy"]
+[ext_resource type="PackedScene" uid="uid://ckt56b0r56sll" path="res://Actors/player.tscn" id="5_jdbrk"]
+[ext_resource type="PackedScene" uid="uid://fj1tyjig8836" path="res://Props/safe_house.tscn" id="5_tu72f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jtl3r"]
 texture = ExtResource("1_gf6nb")
@@ -204,6 +205,10 @@ sources/0 = SubResource("TileSetAtlasSource_jtl3r")
 
 [node name="Level2" type="Node2D"]
 
+[node name="SafeHouse" parent="." instance=ExtResource("5_tu72f")]
+position = Vector2(1248, 301)
+next_level = null
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_3jk6t")
 format = 2
@@ -238,7 +243,7 @@ collision_layer = 48
 shape = SubResource("WorldBoundaryShape2D_bueu7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1120, 337)
+position = Vector2(67, 484)
 zoom = Vector2(3, 3)
 limit_left = 0
 limit_top = 108
@@ -253,5 +258,8 @@ position_smoothing_enabled = true
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("4_rd1om")]
 
-[node name="Player2" parent="." instance=ExtResource("5_q4mhy")]
-position = Vector2(1120, 327)
+[node name="Player" parent="." instance=ExtResource("5_jdbrk")]
+position = Vector2(67, 484)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
