@@ -35,7 +35,7 @@ animations = [{
 "texture": ExtResource("3_t04dn")
 }],
 "loop": true,
-"name": &"fall",
+"name": &"Fall",
 "speed": 5.0
 }, {
 "frames": [{
@@ -46,7 +46,7 @@ animations = [{
 "texture": ExtResource("5_cf81o")
 }],
 "loop": true,
-"name": &"hurt",
+"name": &"Hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -63,7 +63,7 @@ animations = [{
 "texture": ExtResource("9_jrb52")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"Idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -77,7 +77,7 @@ animations = [{
 "texture": ExtResource("12_ovdai")
 }],
 "loop": true,
-"name": &"jump",
+"name": &"Jump",
 "speed": 5.0
 }, {
 "frames": [{
@@ -106,7 +106,7 @@ animations = [{
 "texture": ExtResource("20_2acyq")
 }],
 "loop": true,
-"name": &"run",
+"name": &"Run",
 "speed": 5.0
 }, {
 "frames": [{
@@ -123,7 +123,7 @@ animations = [{
 "texture": ExtResource("24_da1de")
 }],
 "loop": true,
-"name": &"shoot",
+"name": &"Shoot",
 "speed": 5.0
 }]
 
@@ -131,11 +131,7 @@ animations = [{
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_txi6e")
-animation = &"shoot"
-autoplay = "idle"
+animation = &"Idle"
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 10)
-
-[node name="ReviveTimer" parent="." index="4"]
-wait_time = 1.0

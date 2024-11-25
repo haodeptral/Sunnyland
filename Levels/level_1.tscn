@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cu5qisaeh4c6s"]
+[gd_scene load_steps=21 format=3 uid="uid://cu5qisaeh4c6s"]
 
 [ext_resource type="TileSet" uid="uid://b8ollnpu1av3u" path="res://assets/Others/world.tres" id="1_4imm3"]
 [ext_resource type="PackedScene" uid="uid://kktngreqjkox" path="res://Components/hit_box_component.tscn" id="1_pgs57"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bueuwtuv8bfal" path="res://Props/Platforms/Pushable/block_pushable_platform.tscn" id="7_ty7f8"]
 [ext_resource type="PackedScene" uid="uid://bp133lbf78o5x" path="res://Props/Platforms/movable_platform.tscn" id="8_bsc3j"]
 [ext_resource type="PackedScene" uid="uid://vug2hj4ifnrd" path="res://Collectables/gem.tscn" id="8_g5gd4"]
+[ext_resource type="PackedScene" uid="uid://dqtqq4cx7xyyk" path="res://Actors/Enemies/ant.tscn" id="10_queb1"]
 [ext_resource type="PackedScene" uid="uid://ceurhyy16x5tf" path="res://Levels/level_2.tscn" id="13_v60tb"]
 [ext_resource type="PackedScene" uid="uid://fj1tyjig8836" path="res://Props/safe_house.tscn" id="13_w5jpp"]
 
@@ -107,6 +108,10 @@ layer_1/tile_data = PackedInt32Array(1179670, 1, 131072, 1179671, 1, 196608, 117
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("6_k46ly")]
+offset_left = 32.0
+offset_top = 19.0
+offset_right = 32.0
+offset_bottom = 19.0
 
 [node name="PushablePlatforms" type="Node" parent="."]
 
@@ -130,20 +135,26 @@ autoplay = "move"
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Frog" parent="Enemies" instance=ExtResource("5_6awvx")]
-position = Vector2(680, 309)
+position = Vector2(738, 295)
 
 [node name="Frog2" parent="Enemies" instance=ExtResource("5_6awvx")]
-position = Vector2(658, 548)
+position = Vector2(666, 557)
 move_speed = 40.0
 
 [node name="Opossum" parent="Enemies" instance=ExtResource("4_onsql")]
 position = Vector2(440, 288)
 
 [node name="Opossum2" parent="Enemies" instance=ExtResource("4_onsql")]
-position = Vector2(1019, 288)
+position = Vector2(1024, 290)
 
 [node name="Opossum3" parent="Enemies" instance=ExtResource("4_onsql")]
 position = Vector2(488, 543)
+
+[node name="Ant" parent="Enemies" instance=ExtResource("10_queb1")]
+position = Vector2(199, 290)
+
+[node name="Ant2" parent="Enemies" instance=ExtResource("10_queb1")]
+position = Vector2(367, 287)
 
 [node name="Coins" type="Node" parent="."]
 
@@ -151,7 +162,7 @@ position = Vector2(488, 543)
 position = Vector2(329, 296)
 
 [node name="Cherry" parent="Coins" instance=ExtResource("7_dnt1c")]
-position = Vector2(576, 325)
+position = Vector2(580, 329)
 
 [node name="SafeHouse" parent="." instance=ExtResource("13_w5jpp")]
 position = Vector2(1234, 250)
@@ -159,6 +170,8 @@ next_level = ExtResource("13_v60tb")
 
 [node name="Player" parent="." instance=ExtResource("2_66qul")]
 position = Vector2(65, 288)
+move_speed = 150.0
+gravity = 350.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
