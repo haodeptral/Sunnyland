@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3si50wgd1uo5"
-path="res://.godot/imported/Illusion-forest-a.png-8124b9e5dd25c26bf2a0f86e56c0f5ae.ctex"
+uid="uid://cvhmrm5lcv7fm"
+path="res://.godot/imported/celeste-prologue-a_850x368.png-3062eed940d6dfc3241350ed30288bfb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/Forest of Illusion/Forest of Illusion Expansion Pack/Previews/Illusion-forest-a.png"
-dest_files=["res://.godot/imported/Illusion-forest-a.png-8124b9e5dd25c26bf2a0f86e56c0f5ae.ctex"]
+source_file="res://assets/Sprites/LevelDesign/celeste-prologue-a_850x368.png"
+dest_files=["res://.godot/imported/celeste-prologue-a_850x368.png-3062eed940d6dfc3241350ed30288bfb.ctex"]
 
 [params]
 

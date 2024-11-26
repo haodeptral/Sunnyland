@@ -3,11 +3,12 @@ class_name Player
 
 signal game_over
 
-@export var jump_impulse: float = 150.0
+@export var jump_impulse: float = 200.0
 var move_speed: float = 100.0
-var gravity: float = 200.0
+var gravity: float = 400.0
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
+var scene_tree = get_tree()
 const MAX_HEALTH = 5
 var player_health: int = 3
 var damage_taken: bool = false
@@ -17,6 +18,7 @@ var start_position: Vector2
 
 func _ready():
 	start_position = global_position
+	print(start_position)
 
 func _physics_process(delta):
 	var direction = Input.get_axis("move_left", "move_right")
@@ -58,7 +60,9 @@ func take_damage(amount, body) -> void:
 		Event.emit_signal("health_changed", old_health, player_health, MAX_HEALTH)
 		if player_health > 0:
 			$ReviveTimer.start()
-
+		#else:
+			#scene_tree.reload_current_scene()
+#			
 
 func extra_live(value) -> void:
 	var old_health = player_health
