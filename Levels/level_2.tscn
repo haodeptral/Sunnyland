@@ -1,6 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://ceurhyy16x5tf"]
 
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://cpfyuh5ypsmnt" path="res://assets/Sprites/SunnyLand/tileset.png" id="1_gf6nb"]
+=======
+[ext_resource type="Texture2D" path="res://assets/Sprites/SunnyLand/tileset.png" id="1_gf6nb"]
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://kktngreqjkox" path="res://Components/hit_box_component.tscn" id="2_uriix"]
 [ext_resource type="PackedScene" uid="uid://dhfrkfc2ejp5t" path="res://UserInterface/bg.tscn" id="3_pa82u"]
 [ext_resource type="PackedScene" uid="uid://c60dovlbpwlby" path="res://UserInterface/hud.tscn" id="4_rd1om"]
