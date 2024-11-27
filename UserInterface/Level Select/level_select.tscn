@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cphfjp7mbrksq"]
+[gd_scene load_steps=13 format=3 uid="uid://cphfjp7mbrksq"]
 
 [ext_resource type="Texture2D" uid="uid://df8tvf71ttfhy" path="res://assets/Sprites/GUI/BG.png" id="1_6041e"]
 [ext_resource type="Script" path="res://UserInterface/Level Select/level_select.gd" id="1_ayng1"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bv5r1j6yo7bv8" path="res://assets/Sprites/GUI/Window.png" id="3_macty"]
 [ext_resource type="PackedScene" uid="uid://bqwwapn4v5whe" path="res://UserInterface/Level Select/level_box.tscn" id="4_rlbvx"]
 [ext_resource type="PackedScene" uid="uid://dinpppgyybxc5" path="res://UserInterface/fader.tscn" id="5_ikti0"]
-[ext_resource type="Script" path="res://FileManager.gd" id="7_tdlqt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_umqd0"]
 atlas = ExtResource("2_bokdk")
@@ -155,9 +154,5 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
-
-[node name="FileManager" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("7_tdlqt")
 
 [connection signal="button_down" from="Home" to="." method="_on_home_button_down"]
