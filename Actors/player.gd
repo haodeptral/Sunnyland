@@ -4,6 +4,7 @@ class_name Player
 signal game_over
 
 @export var jump_impulse: float = 200.0
+var jump_impulse2: float = 250.0
 var move_speed: float = 100.0
 var gravity: float = 400.0
 @onready var animated_sprite_2d = $AnimatedSprite2D
@@ -14,28 +15,55 @@ var player_health: int = 3
 var damage_taken: bool = false
 var start_position: Vector2
 
+var jump_count = 0
+var max_jump = 2
 
-
+@export var dash_speed: float = 300.0
+@export var dash_duration: float = 0.2
+var is_dashing: bool = false
+var dash_timer: float = 0.0
+var can_dash = true
 func _ready():
 	start_position = global_position
 	print(start_position)
 
+	
+	
 func _physics_process(delta):
 	var direction = Input.get_axis("move_left", "move_right")
 	
+	
+	#JUMP
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		animated_sprite_2d.play(
 			"fall" if velocity.y > 0 else "jump"
 			)
 	else:
+		jump_count = 0
 		animated_sprite_2d.play("run" if direction else "idle")
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y -= jump_impulse
+		jump_count += 1
+		velocity.y -= jump_impulse #fix this shit
+	if Input.is_action_just_pressed("jump") and !is_on_floor() and jump_count < max_jump:
+		jump_count += 1
+		velocity.y -= jump_impulse2
+	if Input.is_action_just_released("jump") and !is_on_floor() and jump_count == max_jump and velocity.y == 0:
+		velocity.y = gravity * delta
 	
+	
+	#DASH
+	if Input.is_action_just_pressed("dash") and can_dash:
+		animated_sprite_2d.play("dash")
+		is_dashing = true
+		$DashTimer.start()
+		#$DashCoolDown.start()
 	if direction:
-		velocity.x = direction * move_speed
+		if is_dashing:
+			velocity.x = direction * dash_speed
+		else:
+			velocity.x = direction * move_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
 	
@@ -74,3 +102,11 @@ func _on_revive_timer_timeout():
 	animated_sprite_2d.play("idle")
 	damage_taken = false
 	set_physics_process(true)
+
+
+func _on_dash_timer_timeout() -> void:
+	is_dashing = false
+
+
+func _on_dash_cool_down_timeout() -> void:
+	can_dash = false
