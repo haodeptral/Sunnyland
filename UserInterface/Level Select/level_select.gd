@@ -30,5 +30,6 @@ func connect_level_selected_to_level_box() -> void:
 
 func change_to_scene(level_num: int) -> void:
 	Event.curr_level = level_num
-	print("Fader?")
-	$fader.fade_screen(true, 1.0, func (): scene_tree.change_scene_to_file("res://Levels/level_"+str(level_num)+ ".tscn"))
+
+	#print("Fader?")
+	$fader.fade_screen(true, 0.5, func (): scene_tree.change_scene_to_file("res://Levels/level_"+str(level_num)+ ".tscn"))

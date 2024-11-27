@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://u1v1fejqgpl2" path="res://Props/Spikes/spike_skull.tscn" id="4_dhagp"]
 [ext_resource type="PackedScene" uid="uid://dl4xogpvd3ncb" path="res://Props/Spikes/spike_top.tscn" id="5_hhhep"]
 [ext_resource type="PackedScene" uid="uid://dhfrkfc2ejp5t" path="res://UserInterface/bg.tscn" id="6_paulv"]
-[ext_resource type="Texture2D" uid="uid://luu5w1brgwyb" path="res://assets/Sprites/HUD/title-screen.png" id="7_ilr83"]
+[ext_resource type="Texture2D" uid="uid://c21pfbkbb044r" path="res://assets/Sprites/HUD/title-screen.png" id="7_ilr83"]
 [ext_resource type="Texture2D" uid="uid://beijvypnh0t8" path="res://assets/Sprites/GUI/Button.png" id="9_wmmek"]
 [ext_resource type="FontFile" uid="uid://bj8xco35bvbx0" path="res://assets/Others/Kenney Bold.ttf" id="10_w5ffj"]
 

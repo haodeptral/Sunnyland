@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://fj1tyjig8836"]
 
-[ext_resource type="Texture2D" uid="uid://co2ui3ewd5u3p" path="res://assets/Sprites/props/house.png" id="1_pr3sf"]
+[ext_resource type="Texture2D" uid="uid://j7nlwuge4uej" path="res://assets/Sprites/props/house.png" id="1_pr3sf"]
 [ext_resource type="Script" path="res://Props/safe_house.gd" id="1_q56mf"]
-[ext_resource type="Texture2D" uid="uid://dbykyqkyio5tp" path="res://assets/Sprites/props/door-opened.png" id="2_t1lbq"]
+[ext_resource type="Texture2D" uid="uid://dddnyfe574kbx" path="res://assets/Sprites/props/door-opened.png" id="2_t1lbq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cqedu"]
 size = Vector2(22, 33)
