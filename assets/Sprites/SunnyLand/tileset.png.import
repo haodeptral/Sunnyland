@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwaalf86rkdux"
-path="res://.godot/imported/front.png-3db816893e6ae046eebc05053bc77fa4.ctex"
+uid="uid://cpfyuh5ypsmnt"
+path="res://.godot/imported/tileset.png-af5ff3e48ce7932970f05e2821b4574a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/Forest Road/PNG/front.png"
-dest_files=["res://.godot/imported/front.png-3db816893e6ae046eebc05053bc77fa4.ctex"]
+source_file="res://assets/Sprites/SunnyLand/tileset.png"
+dest_files=["res://.godot/imported/tileset.png-af5ff3e48ce7932970f05e2821b4574a.ctex"]
 
 [params]
 

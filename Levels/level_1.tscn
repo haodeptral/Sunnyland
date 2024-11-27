@@ -107,6 +107,10 @@ layer_1/tile_data = PackedInt32Array(1179670, 1, 131072, 1179671, 1, 196608, 117
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("6_k46ly")]
+offset_left = -2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 2.0
 
 [node name="PushablePlatforms" type="Node" parent="."]
 
