@@ -3,8 +3,10 @@ class_name Player
 
 signal game_over
 
+var input
+
 @export var jump_impulse: float = 200.0
-var jump_impulse2: float = 250.0
+var jump_impulse2: float = 200.0
 var move_speed: float = 100.0
 var gravity: float = 400.0
 @onready var animated_sprite_2d = $AnimatedSprite2D
@@ -23,47 +25,70 @@ var max_jump = 2
 var is_dashing: bool = false
 var dash_timer: float = 0.0
 var can_dash = true
+
+#func movement(delta):
+	#input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	#if input > 0:
+		#velocity.x  += move_speed * delta
+	#elif input < 0:
+		#velocity.x -= move_speed * delta
+	#else: velocity.x = 0
+	#move_and_slide()
+#
+#func _process(delta: float) -> void:
+	#movement(delta)
+
 func _ready():
 	start_position = global_position
-	print(start_position)
+	#print(start_position)
 
 	
 	
 func _physics_process(delta):
-	var direction = Input.get_axis("move_left", "move_right")
-	
+	var directionX = Input.get_axis("move_left", "move_right")
+	#var directionY
 	
 	#JUMP
-	if not is_on_floor():
+	if not is_on_floor() :
 		velocity.y += gravity * delta
 		animated_sprite_2d.play(
 			"fall" if velocity.y > 0 else "jump"
 			)
+	
 	else:
 		jump_count = 0
-		animated_sprite_2d.play("run" if direction else "idle")
+		animated_sprite_2d.play("run" if directionX else "idle")
+		
+	if is_on_wall():
+		#WALL GRAB
+		animated_sprite_2d.play("wall_grab")
+		
+		if Input.is_action_just_pressed("jump"):
+			velocity.y -= jump_impulse
+	else:	
+		if Input.is_action_pressed("jump") and is_on_floor():
+			jump_count += 1
+			velocity.y -= jump_impulse 
+		if Input.is_action_just_pressed("jump") and !is_on_floor() and jump_count < max_jump:
+			jump_count += 1
+			velocity.y = 0
+			velocity.y -= jump_impulse2
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		jump_count += 1
-		velocity.y -= jump_impulse #fix this shit
-	if Input.is_action_just_pressed("jump") and !is_on_floor() and jump_count < max_jump:
-		jump_count += 1
-		velocity.y -= jump_impulse2
-	if Input.is_action_just_released("jump") and !is_on_floor() and jump_count == max_jump and velocity.y == 0:
-		velocity.y = gravity * delta
+	#fixed double jump
 	
 	
 	#DASH
 	if Input.is_action_just_pressed("dash") and can_dash:
-		animated_sprite_2d.play("dash")
+		#animated_sprite_2d.play("dash")
 		is_dashing = true
 		$DashTimer.start()
 		#$DashCoolDown.start()
-	if direction:
+	if directionX:
 		if is_dashing:
-			velocity.x = direction * dash_speed
+			velocity.x = directionX * dash_speed
+			#velocity.y = directionY * dash_speed / 2
 		else:
-			velocity.x = direction * move_speed
+			velocity.x = directionX * move_speed 
 	else:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
 	
