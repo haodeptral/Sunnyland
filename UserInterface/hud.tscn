@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c60dovlbpwlby"]
+[gd_scene load_steps=34 format=3 uid="uid://c60dovlbpwlby"]
 
 [ext_resource type="Script" path="res://UserInterface/hud.gd" id="1_jm052"]
 [ext_resource type="PackedScene" uid="uid://cmblqe6t82d2w" path="res://UserInterface/Cherry.tscn" id="1_w4ght"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bv5r1j6yo7bv8" path="res://assets/Sprites/GUI/Window.png" id="6_l51l4"]
 [ext_resource type="Texture2D" uid="uid://df8tvf71ttfhy" path="res://assets/Sprites/GUI/BG.png" id="7_vohab"]
 [ext_resource type="PackedScene" uid="uid://dinpppgyybxc5" path="res://UserInterface/fader.tscn" id="8_35vg5"]
+[ext_resource type="Script" path="res://FileManager.gd" id="9_m5stf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pelfa"]
 font = ExtResource("3_aqb1h")
@@ -446,8 +447,14 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 
+[node name="FileManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("9_m5stf")
+
+[connection signal="button_down" from="PauseButton" to="." method="_on_pause_button_button_down"]
 [connection signal="button_down" from="PauseScreen/PausedWIndow/Paused/VBoxContainer/ResumeButton" to="." method="resume"]
 [connection signal="button_down" from="PauseScreen/PausedWIndow/Paused/VBoxContainer/RestartButton" to="." method="restart"]
+[connection signal="button_down" from="PauseScreen/PausedWIndow/Paused/VBoxContainer/ExitButton" to="." method="_on_exit_button_button_down"]
 [connection signal="button_down" from="LevelComplete/TextureRect/HBoxContainer/Home" to="." method="home"]
 [connection signal="button_down" from="LevelComplete/TextureRect/HBoxContainer/NextLevel" to="." method="nextLevel"]
 [connection signal="button_down" from="LevelComplete/TextureRect/HBoxContainer/LevelSelect" to="." method="levelSelect"]

@@ -1,4 +1,4 @@
-extends Actors
+extends CharacterBody2D
 class_name Player
 
 signal game_over
