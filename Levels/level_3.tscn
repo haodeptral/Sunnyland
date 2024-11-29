@@ -1,9 +1,16 @@
+
 [gd_scene load_steps=13 format=3 uid="uid://q0303njbb7hu"]
+
 
 [ext_resource type="Texture2D" uid="uid://momnkf8cevrp" path="res://assets/Sprites/Forest/Forest Pack/PNG/environment/tileset.png" id="1_6t7wt"]
 [ext_resource type="Texture2D" uid="uid://kxt1exj1qt1k" path="res://assets/Sprites/Forest/Forest Expansion Pack/Props-sheet.png" id="2_xm0r8"]
 [ext_resource type="Texture2D" uid="uid://dct8v0tmpc1bg" path="res://assets/Sprites/Forest/Forest Pack/PNG/environment/props/props-sheet.png" id="3_fi0cn"]
-[ext_resource type="PackedScene" uid="uid://ckt56b0r56sll" path="res://Actors/player.tscn" id="5_m1a3y"]
+
+[ext_resource type="Texture2D" uid="uid://cpfyuh5ypsmnt" path="res://assets/Sprites/SunnyLand/tileset.png" id="4_41q6a"]
+[ext_resource type="Texture2D" uid="uid://cvhmrm5lcv7fm" path="res://assets/Sprites/LevelDesign/celeste-prologue-a_850x368.png" id="5_d8r5r"]
+[ext_resource type="PackedScene" uid="uid://b45w022lnko75" path="res://Actors/player_2.tscn" id="6_frqkp"]
+[ext_resource type="Script" path="res://Actors/Enemies/camera_2d.gd" id="7_nnaij"]
+
 [ext_resource type="PackedScene" uid="uid://c60dovlbpwlby" path="res://UserInterface/hud.tscn" id="8_8lc62"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uhd2f"]
@@ -881,6 +888,7 @@ texture = ExtResource("3_fi0cn")
 9:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nyktn"]
+texture = ExtResource("4_41q6a")
 1:1/0 = 0
 3:1/0 = 0
 5:1/0 = 0
@@ -1011,6 +1019,7 @@ texture = ExtResource("3_fi0cn")
 13:13/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8cbd6"]
+texture = ExtResource("5_d8r5r")
 20:0/0 = 0
 21:0/0 = 0
 22:0/0 = 0
@@ -1971,6 +1980,11 @@ layer_0/tile_data = PackedInt32Array(-327706, 458752, 3, -262170, 458752, 4, -32
 layer_1/name = "ForeGround"
 layer_2/name = "Props"
 
+
+[node name="Player2" parent="." instance=ExtResource("6_frqkp")]
+position = Vector2(-357, -128)
+
+
 [node name="WorldBoundaryBottom" type="StaticBody2D" parent="."]
 position = Vector2(-67, 130)
 
@@ -1995,3 +2009,4 @@ position = Vector2(-199, -128)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
+

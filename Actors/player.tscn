@@ -1,21 +1,22 @@
-[gd_scene load_steps=37 format=3 uid="uid://ckt56b0r56sll"]
+
+[gd_scene load_steps=31 format=3 uid="uid://ckt56b0r56sll"]
 
 [ext_resource type="Script" path="res://Actors/player.gd" id="1_7dgss"]
-[ext_resource type="Texture2D" uid="uid://bjy4f8yaloubw" path="res://assets/Sprites/Characters/player/Foxy/Roll/Roll1.png" id="2_awnsn"]
-[ext_resource type="Texture2D" uid="uid://hgt6bfvr5o1e" path="res://assets/Sprites/Characters/player/Foxy/Roll/Roll2.png" id="3_10j1k"]
-[ext_resource type="Texture2D" uid="uid://b6da5kusndgxt" path="res://assets/Sprites/Characters/player/Foxy/Roll/Roll3.png" id="4_nra2c"]
-[ext_resource type="Texture2D" uid="uid://dpqhcakrydk01" path="res://assets/Sprites/Characters/player/Foxy/Roll/Roll4.png" id="5_emrdd"]
-[ext_resource type="Texture2D" uid="uid://b6bfoctxp85rd" path="res://assets/Sprites/Characters/player/Foxy/jump/player-jump-2.png" id="6_mn74s"]
-[ext_resource type="Texture2D" uid="uid://b0kdo0ptcqvg7" path="res://assets/Sprites/Characters/player/Foxy/idle/player-idle-1.png" id="6_u4da6"]
-[ext_resource type="Texture2D" uid="uid://b4xmvdwuetj7r" path="res://assets/Sprites/Characters/player/Foxy/idle/player-idle-2.png" id="7_o5evm"]
-[ext_resource type="Texture2D" uid="uid://cxqx3mnd81x81" path="res://assets/Sprites/Characters/player/Foxy/idle/player-idle-3.png" id="8_ygdyw"]
-[ext_resource type="Texture2D" uid="uid://b53q4b4f7iuvo" path="res://assets/Sprites/Characters/player/Foxy/idle/player-idle-4.png" id="9_6gond"]
-[ext_resource type="Texture2D" uid="uid://b8c2h5nsrupnp" path="res://assets/Sprites/Characters/player/Foxy/jump/player-jump-1.png" id="11_5fau4"]
-[ext_resource type="Texture2D" uid="uid://d1ri3pqcgtc6e" path="res://assets/Sprites/Characters/player/Foxy/run/player-run-1.png" id="12_h2iua"]
-[ext_resource type="Texture2D" uid="uid://b3l6s3hx2suvo" path="res://assets/Sprites/Characters/player/Foxy/run/player-run-2.png" id="13_menph"]
-[ext_resource type="Texture2D" uid="uid://drg5f31xtacdh" path="res://assets/Sprites/Characters/player/Foxy/run/player-run-3.png" id="14_2rpop"]
-[ext_resource type="Texture2D" uid="uid://cgw8i28hgk4x0" path="res://assets/Sprites/Characters/player/Foxy/run/player-run-4.png" id="15_fs8y0"]
-[ext_resource type="Texture2D" uid="uid://bx5h2k8tiypi2" path="res://assets/Sprites/Characters/player/Foxy/run/player-run-5.png" id="16_jx4vw"]
+
+[ext_resource type="Texture2D" uid="uid://dxwoptki1qcvy" path="res://assets/Sprites/Characters/player/run/player-run-1.png" id="1_ogavf"]
+[ext_resource type="Texture2D" uid="uid://bftwra5kgujwn" path="res://assets/Sprites/Characters/player/hurt/player-hurt-1.png" id="2_0prj8"]
+[ext_resource type="Texture2D" uid="uid://c024kli58yuy4" path="res://assets/Sprites/Characters/player/run/player-run-2.png" id="2_646h8"]
+[ext_resource type="Texture2D" uid="uid://b8j5pff8ub2s3" path="res://assets/Sprites/Characters/player/hurt/player-hurt-2.png" id="3_g1s0c"]
+[ext_resource type="Texture2D" uid="uid://copfldkwk400x" path="res://assets/Sprites/Characters/player/run/player-run-3.png" id="3_ke5gw"]
+[ext_resource type="Texture2D" uid="uid://bj0dygv2p4x1t" path="res://assets/Sprites/Characters/player/idle/player-idle-1.png" id="4_8ft7d"]
+[ext_resource type="Texture2D" uid="uid://167017j6n0bf" path="res://assets/Sprites/Characters/player/run/player-run-4.png" id="4_17g4t"]
+[ext_resource type="Texture2D" uid="uid://cwrp50eri3ahh" path="res://assets/Sprites/Characters/player/run/player-run-5.png" id="5_4yi5p"]
+[ext_resource type="Texture2D" uid="uid://dkmy4786tnkx1" path="res://assets/Sprites/Characters/player/idle/player-idle-2.png" id="5_yvoy8"]
+[ext_resource type="Texture2D" uid="uid://c02u6kln31r11" path="res://assets/Sprites/Characters/player/idle/player-idle-3.png" id="6_badn1"]
+[ext_resource type="Texture2D" uid="uid://dfs3daul4x830" path="res://assets/Sprites/Characters/player/run/player-run-6.png" id="6_t7ka4"]
+[ext_resource type="Texture2D" uid="uid://kd3tv1gauytq" path="res://assets/Sprites/Characters/player/idle/player-idle-4.png" id="7_ixe2y"]
+[ext_resource type="Texture2D" uid="uid://0mrg7je31v7o" path="res://assets/Sprites/Characters/player/jump/player-jump-1.png" id="8_muyrj"]
+
 [ext_resource type="PackedScene" uid="uid://kktngreqjkox" path="res://Components/hit_box_component.tscn" id="16_xqcqs"]
 [ext_resource type="Texture2D" uid="uid://bujxd1t5t02gl" path="res://assets/Sprites/Characters/player/Foxy/run/player-run-6.png" id="17_fdsxn"]
 [ext_resource type="PackedScene" uid="uid://b5gugbvrilk8m" path="res://Components/hurt_box_component.tscn" id="17_tyw2w"]
@@ -33,6 +34,7 @@ load_path = "res://.godot/imported/player-hurt-2.png-c265d2ade9a1062ca63ec1d5339
 animations = [{
 "frames": [{
 "duration": 1.0,
+
 "texture": ExtResource("2_awnsn")
 }, {
 "duration": 1.0,
@@ -51,6 +53,7 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("6_mn74s")
+
 }],
 "loop": true,
 "name": &"fall",
@@ -174,7 +177,9 @@ script = ExtResource("1_7dgss")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d3x6c")
+
 animation = &"dash"
+
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)

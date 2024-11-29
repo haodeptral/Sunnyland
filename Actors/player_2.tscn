@@ -133,7 +133,6 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_txi6e")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.0
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 10)
