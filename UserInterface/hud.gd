@@ -50,8 +50,10 @@ func _on_level_completed():
 	%MoneyLabel.text = str(coin_count)
 	Event.total_coin += coin_count
 	var next_level = Event.curr_level + 1
+	print(Event.level_data)
 	if Event.level_data.has(next_level):
 		Event.level_data[next_level] = false
+	%FileManager.save_game()
 	display_level_complete()
 	
 	
@@ -85,3 +87,9 @@ func resume() -> void:
 	
 func pause_game():
 	set_game_paused(true)
+
+func _on_pause_button_button_down() -> void:
+	set_game_paused(true)
+func _on_exit_button_button_down() -> void:
+	set_game_paused(false)
+	home()

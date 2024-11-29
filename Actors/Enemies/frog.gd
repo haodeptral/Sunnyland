@@ -58,3 +58,4 @@ func update_facing_direction() -> void:
 		animated_sprite_2d.flip_h = true
 	elif direction < 0:
 		animated_sprite_2d.flip_h = false
+
