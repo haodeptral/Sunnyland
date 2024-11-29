@@ -2,10 +2,11 @@ extends CharacterBody2D
 class_name Player
 
 signal game_over
+@onready var wall_detecter: RayCast2D = $WallDetecter
 
 @export var jump_impulse: float = 200.0
-var jump_impulse2: float = 250.0
-var move_speed: float = 100.0
+
+@export var move_speed: float = 120.0
 var gravity: float = 400.0
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
@@ -23,58 +24,79 @@ var max_jump = 2
 var is_dashing: bool = false
 var dash_timer: float = 0.0
 var can_dash = true
+
+
 func _ready():
 	start_position = global_position
-	print(start_position)
 
 	
-	
-func _physics_process(delta):
-	var direction = Input.get_axis("move_left", "move_right")
-	
-	
-	#JUMP
-	if not is_on_floor():
+func gravity_force(delta):
+	if wall_collider():
+		#print("colided")
+		velocity.y = 0
+		velocity.y = 20
+		print(velocity.y)
+		animated_sprite_2d.play("wall_hug")
+	else :
 		velocity.y += gravity * delta
+		
+func _physics_process(delta):
+	var input = Input.get_axis("move_left","move_right")
+	if input > 0:
+		if is_dashing:
+			velocity.x = dash_speed
+		else:
+			velocity.x = move_speed 
+		animated_sprite_2d.flip_h = false
+		wall_detecter.scale.x = 1
+	elif input < 0:
+		if is_dashing:
+			velocity.x = -dash_speed
+		else:
+			velocity.x = -move_speed 
+		animated_sprite_2d.flip_h = true
+		wall_detecter.scale.x = -1
+	else: velocity.x = 0
+	gravity_force(delta)
+	#WALL SLIDE
+	
+		
+		
+		
+	#JUMP
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+			jump_count += 1
+			velocity.y -= jump_impulse
+	#DOUBLE JUMP
+	if Input.is_action_just_pressed("jump") and !is_on_floor() and jump_count < max_jump:
+			jump_count += 1
+			velocity.y = 0
+			velocity.y -= jump_impulse
+	if not is_on_floor() and not wall_collider():
 		animated_sprite_2d.play(
 			"fall" if velocity.y > 0 else "jump"
 			)
 	else:
-		jump_count = 0
-		animated_sprite_2d.play("run" if direction else "idle")
-	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		jump_count += 1
-		velocity.y -= jump_impulse #fix this shit
-	if Input.is_action_just_pressed("jump") and !is_on_floor() and jump_count < max_jump:
-		jump_count += 1
-		velocity.y -= jump_impulse2
-	if Input.is_action_just_released("jump") and !is_on_floor() and jump_count == max_jump and velocity.y == 0:
-		velocity.y = gravity * delta
-	
+		if not wall_collider():
+			jump_count = 0
+			animated_sprite_2d.play("run" if input else "idle")
 	
 	#DASH
 	if Input.is_action_just_pressed("dash") and can_dash:
+		print("dash")
 		animated_sprite_2d.play("dash")
 		is_dashing = true
+		can_dash = false
 		$DashTimer.start()
-		#$DashCoolDown.start()
-	if direction:
-		if is_dashing:
-			velocity.x = direction * dash_speed
-		else:
-			velocity.x = direction * move_speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, move_speed)
+		$DashCoolDown.start()
 	
-	update_facing_direction()
 	move_and_slide()
 
-func update_facing_direction() -> void:
-	if velocity.x > 0:
-		animated_sprite_2d.flip_h = false
-	elif velocity.x < 0:
-		animated_sprite_2d.flip_h = true
+func wall_collider():
+	#print("Is coliding with wall")
+	return wall_detecter.is_colliding()
+	
+
 
 func take_damage(amount, body) -> void:
 	if not damage_taken:
@@ -109,4 +131,4 @@ func _on_dash_timer_timeout() -> void:
 
 
 func _on_dash_cool_down_timeout() -> void:
-	can_dash = false
+	can_dash = true
