@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bhd03aecdkvaa" path="res://assets/Sprites/HUD/middle.png" id="2_vew52"]
 [ext_resource type="Texture2D" uid="uid://cxv08vc1drf5b" path="res://assets/Sprites/HUD/back.png" id="3_65x8y"]
 [ext_resource type="PackedScene" uid="uid://cfacjssbdqjqc" path="res://Actors/Enemies/opossum.tscn" id="4_onsql"]
-[ext_resource type="Texture2D" uid="uid://cbjvnw4je0p3x" path="res://assets/Sprites/Tiles/tileset.png" id="4_skmnk"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/tileset.png" id="4_skmnk"]
 [ext_resource type="PackedScene" uid="uid://dmtmwqaeiqo5x" path="res://Actors/Enemies/frog.tscn" id="5_6awvx"]
 [ext_resource type="PackedScene" uid="uid://c60dovlbpwlby" path="res://UserInterface/hud.tscn" id="6_k46ly"]
-[ext_resource type="PackedScene" uid="uid://b7gd7u7w7iisn" path="res://Actors/Enemies/ant.tscn" id="11_lrkg7"]
+[ext_resource type="PackedScene" uid="uid://dqtqq4cx7xyyk" path="res://Actors/Enemies/ant.tscn" id="11_lrkg7"]
 [ext_resource type="PackedScene" uid="uid://fj1tyjig8836" path="res://Props/safe_house.tscn" id="13_w5jpp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nru4p"]
@@ -1672,10 +1672,6 @@ position = Vector2(3252, 224)
 
 [node name="Frog" parent="Enemies" instance=ExtResource("5_6awvx")]
 position = Vector2(3556, 244)
-jump_impulse = null
-mob_point = null
 
 [node name="Frog2" parent="Enemies" instance=ExtResource("5_6awvx")]
 position = Vector2(3756, 232)
-jump_impulse = null
-mob_point = null
