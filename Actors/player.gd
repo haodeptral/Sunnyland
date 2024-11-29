@@ -4,9 +4,11 @@ class_name Player
 signal game_over
 @onready var wall_detecter: RayCast2D = $WallDetecter
 
-@export var jump_impulse: float = 200.0
+var input
 
+@export var jump_impulse: float = 200.0
 @export var move_speed: float = 120.0
+
 var gravity: float = 400.0
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
@@ -25,7 +27,6 @@ var is_dashing: bool = false
 var dash_timer: float = 0.0
 var can_dash = true
 
-
 func _ready():
 	start_position = global_position
 
@@ -38,6 +39,7 @@ func gravity_force(delta):
 		print(velocity.y)
 		animated_sprite_2d.play("wall_hug")
 	else :
+
 		velocity.y += gravity * delta
 		
 func _physics_process(delta):
@@ -76,7 +78,9 @@ func _physics_process(delta):
 		animated_sprite_2d.play(
 			"fall" if velocity.y > 0 else "jump"
 			)
+	
 	else:
+
 		if not wall_collider():
 			jump_count = 0
 			animated_sprite_2d.play("run" if input else "idle")
@@ -85,10 +89,13 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("dash") and can_dash:
 		print("dash")
 		animated_sprite_2d.play("dash")
+
 		is_dashing = true
 		can_dash = false
 		$DashTimer.start()
+
 		$DashCoolDown.start()
+
 	
 	move_and_slide()
 
@@ -113,7 +120,6 @@ func take_damage(amount, body) -> void:
 		#else:
 			#scene_tree.reload_current_scene()
 #			
-
 func extra_live(value) -> void:
 	var old_health = player_health
 	player_health += value
