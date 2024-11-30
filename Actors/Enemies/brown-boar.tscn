@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://b28fs53r35ht5"]
+
+[ext_resource type="Texture2D" uid="uid://bgucwt0psg7fg" path="res://assets/Sprites/Characters/Boar/Walk/Walk-Base-Sheet.png" id="1_t33ct"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3isnb"]
+atlas = ExtResource("1_t33ct")
+region = Rect2(0, 0, 47, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ek1f7"]
+atlas = ExtResource("1_t33ct")
+region = Rect2(47, 0, 47, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yp32"]
+atlas = ExtResource("1_t33ct")
+region = Rect2(94, 0, 47, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_segtl"]
+atlas = ExtResource("1_t33ct")
+region = Rect2(141, 0, 47, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi3es"]
+atlas = ExtResource("1_t33ct")
+region = Rect2(188, 0, 47, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nik5i"]
+atlas = ExtResource("1_t33ct")
+region = Rect2(235, 0, 47, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_83jw0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3isnb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ek1f7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yp32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_segtl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi3es")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nik5i")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 7.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_83jw0")
+animation = &"Move"
+frame_progress = 0.499077

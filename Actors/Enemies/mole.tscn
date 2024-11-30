@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://1yngik0b0wr0"]
+
+[ext_resource type="Texture2D" uid="uid://d1u047rk1wioq" path="res://assets/Sprites/Characters/Snail/image.png" id="1_e7a6o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xoly"]
+atlas = ExtResource("1_e7a6o")
+region = Rect2(288, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5d2vr"]
+atlas = ExtResource("1_e7a6o")
+region = Rect2(320, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40hfr"]
+atlas = ExtResource("1_e7a6o")
+region = Rect2(352, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5im2y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xoly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5d2vr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40hfr")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5im2y")
+animation = &"walk"
+frame = 1
+frame_progress = 0.831076

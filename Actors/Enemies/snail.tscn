@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://bh0ny83p0mfa8"]
+
+[ext_resource type="Texture2D" uid="uid://bd8v2lj77yow3" path="res://assets/Sprites/Characters/Snail/walk-Sheet.png" id="1_t3xsm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wi1j"]
+atlas = ExtResource("1_t3xsm")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq2ny"]
+atlas = ExtResource("1_t3xsm")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4bke"]
+atlas = ExtResource("1_t3xsm")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpq71"]
+atlas = ExtResource("1_t3xsm")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oref0"]
+atlas = ExtResource("1_t3xsm")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl78j"]
+atlas = ExtResource("1_t3xsm")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqnah"]
+atlas = ExtResource("1_t3xsm")
+region = Rect2(288, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo4px"]
+atlas = ExtResource("1_t3xsm")
+region = Rect2(336, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mpl5v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wi1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq2ny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4bke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpq71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oref0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jl78j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqnah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo4px")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mpl5v")
+animation = &"walk"
+frame_progress = 0.460445
