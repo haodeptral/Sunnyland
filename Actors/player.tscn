@@ -143,7 +143,7 @@ region = Rect2(2557, 101, 181, 189)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14pcv"]
 size = Vector2(181, 189)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 script = ExtResource("1_7dgss")
 
@@ -189,12 +189,14 @@ offset_right = 60.0
 offset_bottom = 540.0
 
 [node name="MoveLeft" type="TouchScreenButton" parent="CanvasLayer/Control"]
+visible = false
 texture_normal = SubResource("AtlasTexture_ovipb")
 texture_pressed = SubResource("AtlasTexture_5x1ri")
 shape = SubResource("RectangleShape2D_1jdon")
 action = "move_left"
 
 [node name="Control2" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 250.0
@@ -209,6 +211,7 @@ shape = SubResource("RectangleShape2D_1jdon")
 action = "move_right"
 
 [node name="Control3" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1050.0

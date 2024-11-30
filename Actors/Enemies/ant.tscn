@@ -1,14 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7gd7u7w7iisn"]
+[gd_scene load_steps=12 format=3 uid="uid://dqtqq4cx7xyyk"]
 
 [ext_resource type="Script" path="res://Actors/Enemies/base_enemies.gd" id="1_hd6wr"]
-[ext_resource type="Texture2D" uid="uid://btapyc5eif2mu" path="res://assets/Sprites/Characters/ant/ant-1.png" id="2_5n8gb"]
-[ext_resource type="Texture2D" uid="uid://c6ybev032ergh" path="res://assets/Sprites/Characters/ant/ant-2.png" id="3_vu56f"]
-[ext_resource type="Texture2D" uid="uid://cylofmcgohmpu" path="res://assets/Sprites/Characters/ant/ant-3.png" id="4_wyiqs"]
-[ext_resource type="Texture2D" uid="uid://pkboynf63klx" path="res://assets/Sprites/Characters/ant/ant-4.png" id="5_occdq"]
-[ext_resource type="Texture2D" uid="uid://cxr26p1uoltpx" path="res://assets/Sprites/Characters/ant/ant-5.png" id="6_5m8q6"]
-[ext_resource type="Texture2D" uid="uid://ckt0muxt5hna8" path="res://assets/Sprites/Characters/ant/ant-6.png" id="7_23kbi"]
-[ext_resource type="Texture2D" uid="uid://b1oc7528i4n6u" path="res://assets/Sprites/Characters/ant/ant-7.png" id="8_ryo1m"]
-[ext_resource type="Texture2D" uid="uid://c6ek27y51qykd" path="res://assets/Sprites/Characters/ant/ant-8.png" id="9_1h30s"]
+[ext_resource type="Texture2D" uid="uid://cjaiea2ubexjs" path="res://assets/Sprites/Characters/ant/ant-1.png" id="2_5n8gb"]
+[ext_resource type="Texture2D" uid="uid://djonjl5ltwxrr" path="res://assets/Sprites/Characters/ant/ant-2.png" id="3_vu56f"]
+[ext_resource type="Texture2D" uid="uid://bk20i5snd8i24" path="res://assets/Sprites/Characters/ant/ant-3.png" id="4_wyiqs"]
+[ext_resource type="Texture2D" uid="uid://ygp4se7ven5l" path="res://assets/Sprites/Characters/ant/ant-4.png" id="5_occdq"]
+[ext_resource type="Texture2D" uid="uid://t6lghpdhd2kb" path="res://assets/Sprites/Characters/ant/ant-5.png" id="6_5m8q6"]
+[ext_resource type="Texture2D" uid="uid://cu00suf86i8tn" path="res://assets/Sprites/Characters/ant/ant-6.png" id="7_23kbi"]
+[ext_resource type="Texture2D" uid="uid://3odl5u7cdl5r" path="res://assets/Sprites/Characters/ant/ant-7.png" id="8_ryo1m"]
+[ext_resource type="Texture2D" uid="uid://6w2r8bjxstj4" path="res://assets/Sprites/Characters/ant/ant-8.png" id="9_1h30s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2jgsh"]
 animations = [{
