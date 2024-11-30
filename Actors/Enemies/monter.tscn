@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://c235ddp5nwmii"]
+
+[ext_resource type="Texture2D" uid="uid://d1u047rk1wioq" path="res://assets/Sprites/Characters/Snail/image.png" id="1_tfx16"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jadx4"]
+atlas = ExtResource("1_tfx16")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxhv8"]
+atlas = ExtResource("1_tfx16")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpeit"]
+atlas = ExtResource("1_tfx16")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lb4m2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jadx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxhv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpeit")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lb4m2")
+animation = &"jump"
+frame = 2
+frame_progress = 0.788889

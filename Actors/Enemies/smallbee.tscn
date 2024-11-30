@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwgjxajqb6dde"]
+
+[ext_resource type="Texture2D" uid="uid://ob0vwbfx4tfe" path="res://assets/Sprites/Characters/Small Bee/Fly/Fly-Sheet.png" id="1_n1ndu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7kxw"]
+atlas = ExtResource("1_n1ndu")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsxy4"]
+atlas = ExtResource("1_n1ndu")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3letb"]
+atlas = ExtResource("1_n1ndu")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwk22"]
+atlas = ExtResource("1_n1ndu")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_go280"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7kxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsxy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3letb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwk22")
+}],
+"loop": true,
+"name": &"Fly",
+"speed": 10.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_go280")
+animation = &"Fly"
+frame_progress = 0.582343

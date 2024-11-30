@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://2fduce1kuipf"]
+
+[ext_resource type="Texture2D" uid="uid://dys4yysadmsqe" path="res://assets/Sprites/Characters/bird/flying-creature-cycle.png" id="1_hshtv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32gw8"]
+atlas = ExtResource("1_hshtv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u11rp"]
+atlas = ExtResource("1_hshtv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbqoj"]
+atlas = ExtResource("1_hshtv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0651"]
+atlas = ExtResource("1_hshtv")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwy0v"]
+atlas = ExtResource("1_hshtv")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvixd"]
+atlas = ExtResource("1_hshtv")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqxqw"]
+atlas = ExtResource("1_hshtv")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n7oly"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32gw8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u11rp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbqoj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0651")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwy0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvixd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqxqw")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 7.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n7oly")
+animation = &"fly"
+frame_progress = 0.310078
