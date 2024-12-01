@@ -19,6 +19,7 @@ var damage_taken: bool = false
 var start_position: Vector2
 
 var jump_count = 0
+var wall_jump_count = 0
 var max_jump = 2
 
 @export var dash_speed: float = 300.0
@@ -33,10 +34,15 @@ func _ready():
 
 	
 func gravity_force(delta):
-	if wall_collider():
+	if wall_collider() and not is_on_floor() and velocity.y > 0:
 		#print("colided")
+		
 		velocity.y = 20
 		#print(velocity.y)
+		jump_count = 0
+		wall_jump_count+=1
+		if wall_jump_count == 3:
+			jump_count = 2
 		animated_sprite_2d.play("wall_hug")
 	else :
 		velocity.y += gravity * delta
@@ -59,17 +65,16 @@ func _physics_process(delta):
 		wall_detecter.scale.x = -1
 	else: velocity.x = 0
 	gravity_force(delta)
-	#WALL SLIDE
-	
-		
-		
-		
+	#WALL JUMP
+	#if Input.is_action_pressed("jump") and wall_collider():
+		#velocity.y = -20
+		#
 	#JUMP
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 			jump_count += 1
 			velocity.y -= jump_impulse
 	#DOUBLE JUMP
-	if Input.is_action_just_pressed("jump") and !is_on_floor() and jump_count < max_jump:
+	if Input.is_action_just_pressed("jump") and !is_on_floor() and jump_count < max_jump-1:
 			jump_count += 1
 			velocity.y = 0
 			velocity.y -= jump_impulse
@@ -84,7 +89,7 @@ func _physics_process(delta):
 	
 	#DASH
 	if Input.is_action_just_pressed("dash") and can_dash:
-		print("dash")
+		#print("dash")
 		animated_sprite_2d.play("dash")
 		is_dashing = true
 		can_dash = false
@@ -111,8 +116,8 @@ func take_damage(amount, body) -> void:
 		Event.emit_signal("health_changed", old_health, player_health, MAX_HEALTH)
 		if player_health > 0:
 			$ReviveTimer.start()
-		#else:
-			#scene_tree.reload_current_scene()
+		else:
+			scene_tree.reload_current_scene()
 #			
 
 func extra_live(value) -> void:
@@ -133,8 +138,3 @@ func _on_dash_timer_timeout() -> void:
 
 func _on_dash_cool_down_timeout() -> void:
 	can_dash = true
-
-func _die():
-	if player_health == 0:
-		print("die")
-		scene_tree.reload_current_scene()
