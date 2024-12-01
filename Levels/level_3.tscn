@@ -2190,7 +2190,6 @@ position = Vector2(529, 124)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("8_8lc62")]
-visible = false
 offset_left = 2.0
 offset_top = -1.0
 offset_right = 2.0

@@ -1460,7 +1460,7 @@ shape = SubResource("WorldBoundaryShape2D_sq84s")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(134, 431)
 offset = Vector2(50, 0)
-zoom = Vector2(2, 2)
+zoom = Vector2(3.5, 3.5)
 limit_left = 0
 limit_top = 112
 limit_bottom = 600
