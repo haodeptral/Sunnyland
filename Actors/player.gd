@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-signal game_over
+
 @onready var wall_detecter: RayCast2D = $WallDetecter
 
 @export var jump_impulse: float = 200.0
@@ -9,6 +9,8 @@ signal game_over
 @export var move_speed: float = 120.0
 var gravity: float = 400.0
 @onready var animated_sprite_2d = $AnimatedSprite2D
+
+var checkpoint 
 
 var scene_tree = get_tree()
 const MAX_HEALTH = 5
@@ -33,9 +35,8 @@ func _ready():
 func gravity_force(delta):
 	if wall_collider():
 		#print("colided")
-		velocity.y = 0
 		velocity.y = 20
-		print(velocity.y)
+		#print(velocity.y)
 		animated_sprite_2d.play("wall_hug")
 	else :
 		velocity.y += gravity * delta
@@ -120,7 +121,7 @@ func extra_live(value) -> void:
 	Event.emit_signal("health_changed", old_health, player_health, MAX_HEALTH)
 
 func _on_revive_timer_timeout():
-	global_position = start_position
+	global_position = checkpoint
 	animated_sprite_2d.play("idle")
 	damage_taken = false
 	set_physics_process(true)
@@ -132,3 +133,8 @@ func _on_dash_timer_timeout() -> void:
 
 func _on_dash_cool_down_timeout() -> void:
 	can_dash = true
+
+func _die():
+	if player_health == 0:
+		print("die")
+		scene_tree.reload_current_scene()

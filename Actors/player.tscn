@@ -228,7 +228,7 @@ wait_time = 0.2
 
 [node name="DashCoolDown" type="Timer" parent="."]
 
-[node name="WallDetecter" type="RayCast2D" parent="."]
+[node name="WallDetecter" type="RayCast2D" parent="." groups=["Player"]]
 position = Vector2(0, 6)
 target_position = Vector2(8, 0)
 
