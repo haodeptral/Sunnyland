@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://cf16mhvm8jdr6"]
+[gd_scene load_steps=44 format=4 uid="uid://cf16mhvm8jdr6"]
 
 [ext_resource type="Texture2D" uid="uid://dari0tfr1p0a6" path="res://assets/Sprites/Day-Platformer/PNG/sky.png" id="1_qbbnj"]
 [ext_resource type="Texture2D" uid="uid://bm4n2fxeiuwk5" path="res://assets/Sprites/Day-Platformer/PNG/trees.png" id="2_grv53"]
@@ -16,6 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://kktngreqjkox" path="res://Components/hit_box_component.tscn" id="12_6bj4j"]
 [ext_resource type="PackedScene" uid="uid://bfwl8c1mha78x" path="res://Effect/checkpoint.tscn" id="13_3y1ee"]
 [ext_resource type="PackedScene" uid="uid://c4uwonqyob7u" path="res://Actors/Enemies/Eagle/eagle.tscn" id="16_3l4x4"]
+[ext_resource type="PackedScene" uid="uid://cfacjssbdqjqc" path="res://Actors/Enemies/opossum.tscn" id="17_4pw7l"]
+[ext_resource type="PackedScene" uid="uid://dmtmwqaeiqo5x" path="res://Actors/Enemies/frog.tscn" id="18_7ku0j"]
+[ext_resource type="PackedScene" uid="uid://bh0ny83p0mfa8" path="res://Actors/Enemies/snail.tscn" id="19_5ctan"]
+[ext_resource type="PackedScene" uid="uid://dwgjxajqb6dde" path="res://Actors/Enemies/smallbee.tscn" id="20_bxcg5"]
 
 [sub_resource type="TileSet" id="TileSet_vdnaa"]
 
@@ -1623,3 +1627,15 @@ remote_path = NodePath("../../Camera2D")
 
 [node name="Eagle" parent="." instance=ExtResource("16_3l4x4")]
 position = Vector2(550, 303)
+
+[node name="Opossum" parent="." instance=ExtResource("17_4pw7l")]
+position = Vector2(1143, -94)
+
+[node name="Frog" parent="." instance=ExtResource("18_7ku0j")]
+position = Vector2(969, -763)
+
+[node name="snail" parent="." instance=ExtResource("19_5ctan")]
+position = Vector2(584, 373)
+
+[node name="SmallBee" parent="." instance=ExtResource("20_bxcg5")]
+position = Vector2(824, -17)

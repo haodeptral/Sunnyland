@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwgjxajqb6dde"]
+[gd_scene load_steps=9 format=3 uid="uid://dwgjxajqb6dde"]
 
+[ext_resource type="Script" path="res://Actors/Enemies/smallbee.gd" id="1_0sj72"]
 [ext_resource type="Texture2D" uid="uid://ob0vwbfx4tfe" path="res://assets/Sprites/Characters/Small Bee/Fly/Fly-Sheet.png" id="1_n1ndu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7kxw"]
@@ -38,9 +39,19 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f3b3"]
+
+[node name="SmallBee" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_0sj72")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_go280")
 animation = &"Fly"
-frame_progress = 0.582343
+frame_progress = 0.256722
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0f3b3")
+
+[node name="WallDetector" type="RayCast2D" parent="."]
+target_position = Vector2(-22, 0)

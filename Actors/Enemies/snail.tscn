@@ -1,6 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bh0ny83p0mfa8"]
+[gd_scene load_steps=19 format=3 uid="uid://bh0ny83p0mfa8"]
 
+[ext_resource type="Script" path="res://Actors/Enemies/snail.gd" id="1_4fal0"]
 [ext_resource type="Texture2D" uid="uid://bd8v2lj77yow3" path="res://assets/Sprites/Characters/Snail/walk-Sheet.png" id="1_t3xsm"]
+[ext_resource type="PackedScene" uid="uid://kktngreqjkox" path="res://Components/hit_box_component.tscn" id="3_0e1vq"]
+[ext_resource type="PackedScene" uid="uid://d36xic1t2gcbh" path="res://Components/attack_box_component.tscn" id="4_u1exe"]
+[ext_resource type="PackedScene" uid="uid://b5gugbvrilk8m" path="res://Components/hurt_box_component.tscn" id="5_mvg0v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0wi1j"]
 atlas = ExtResource("1_t3xsm")
@@ -66,9 +70,61 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6ecx"]
+size = Vector2(27.5, 17.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8us7c"]
+size = Vector2(27.5, 15.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5cj5"]
+size = Vector2(66, 23.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d15t3"]
+size = Vector2(27.5, 13)
+
+[node name="snail" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_4fal0")
+move_speed = 10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mpl5v")
 animation = &"walk"
-frame_progress = 0.460445
+frame_progress = 0.109753
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, 6.75)
+shape = SubResource("RectangleShape2D_p6ecx")
+
+[node name="HitBoxComponent" parent="." instance=ExtResource("3_0e1vq")]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+position = Vector2(1, 8)
+shape = SubResource("RectangleShape2D_8us7c")
+debug_color = Color(0.695795, 0.364366, 0.849677, 0.42)
+
+[node name="AttackBoxComponent" parent="." instance=ExtResource("4_u1exe")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBoxComponent"]
+position = Vector2(1, 5)
+shape = SubResource("RectangleShape2D_e5cj5")
+debug_color = Color(0.920646, 0.251602, 0.326244, 0.42)
+
+[node name="HurtBoxComponent" parent="." instance=ExtResource("5_mvg0v")]
+collision_mask = 16
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBoxComponent"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_d15t3")
+debug_color = Color(0.45091, 0.592992, 0.169139, 0.42)
+
+[node name="DangerDetectorLeft" type="RayCast2D" parent="."]
+position = Vector2(-18, 0)
+target_position = Vector2(0, 17)
+collision_mask = 9
+
+[node name="DangerDetectorRight" type="RayCast2D" parent="."]
+position = Vector2(18, 0)
+target_position = Vector2(0, 17)
+collision_mask = 9
