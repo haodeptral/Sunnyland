@@ -7,10 +7,7 @@ signal chase_ended
 
 func _on_body_entered(body):
 	if is_player(body):
-		var direction = Vector2(body.global_position - self.global_position)
-		direction /= direction.length()
-		#print(direction)
-		chase_began.emit( direction)
+		chase_began.emit( sign(body.global_position.x - self.global_position.x))
 
 
 func _on_body_exited(body):
