@@ -1,14 +1,16 @@
-extends CharacterBody2D
+extends Enemy
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_box_component: Area2D = $AttackBoxComponent
 @onready var hurt_box_component: Area2D = $HurtBoxComponent
 @onready var wall_detector: RayCast2D = $WallDetector
 @onready var ground_detector: RayCast2D = $GroundDetector
+@onready var hit_box: HitBox = $HitBoxComponent
 
 
-@export var ATTACK_SPEED: float = 50.0
+@export var ATTACK_SPEED: float = 200.0
 @export var PATROL_SPEED: float = 50.0
+@onready var hitbox: CollisionShape2D = $Hitbox
 
 var PATROL_HEIGHT 
 
@@ -22,7 +24,7 @@ func _physics_process(delta: float) -> void:
 	if ground_detector.is_colliding():
 		back_to_idle()
 	if (global_position.y < PATROL_HEIGHT):
-		velocity.y = 0
+		global_position.y += PATROL_SPEED * delta
 		#print(global_position.y)
 	
 	move_and_slide()
@@ -43,17 +45,30 @@ func update_direction():
 		#print(direction)
 
 func back_to_idle():
-		velocity.y = PATROL_SPEED * -1
+	animated_sprite_2d.play("idle")
+	velocity.y = PATROL_SPEED * -1
 	
 
 func _on_chase_began(new_direction: Variant) -> void:
-	print("body entered")
+	#print("body entered")
+	animated_sprite_2d.play("attack")
 	velocity = ATTACK_SPEED * new_direction
 	pass # Replace with function body.
 
 
 
 func _on_chase_ended() -> void:
-	print("body exit")
-	back_to_idle()
+	
+	pass # Replace with function body.
+func take_damage(_amount, body) -> void:
+	if body.global_position.y > get_node("HurtBoxComponent").global_position.y:
+		return
+	animated_sprite_2d.play("hurt")
+	#$Timer.start()
+	die()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("hit")
+	body.death = true
 	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://q0303njbb7hu"]
+[gd_scene load_steps=16 format=3 uid="uid://q0303njbb7hu"]
 
 [ext_resource type="Texture2D" uid="uid://momnkf8cevrp" path="res://assets/Sprites/Forest/Forest Pack/PNG/environment/tileset.png" id="1_frjq6"]
 [ext_resource type="Texture2D" uid="uid://kxt1exj1qt1k" path="res://assets/Sprites/Forest/Forest Expansion Pack/Props-sheet.png" id="2_vy6hi"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ckt56b0r56sll" path="res://Actors/player.tscn" id="5_8f3aa"]
 [ext_resource type="PackedScene" uid="uid://c4uwonqyob7u" path="res://Actors/Enemies/Eagle/eagle.tscn" id="6_8bv32"]
 [ext_resource type="PackedScene" uid="uid://c60dovlbpwlby" path="res://UserInterface/hud.tscn" id="6_k46ly"]
+[ext_resource type="PackedScene" uid="uid://bfwl8c1mha78x" path="res://Effect/checkpoint.tscn" id="7_lakw7"]
+[ext_resource type="PackedScene" uid="uid://cfacjssbdqjqc" path="res://Actors/Enemies/opossum.tscn" id="8_ciuvd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uhd2f"]
 texture = ExtResource("1_frjq6")
@@ -1992,12 +1994,17 @@ offset_bottom = -724.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("5_8f3aa")]
-position = Vector2(-525, -147)
+position = Vector2(-275, -143)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-7, -49)
 zoom = Vector2(3, 3)
 
+[node name="Checkpoint" parent="." instance=ExtResource("7_lakw7")]
+position = Vector2(-442, -142)
+
+[node name="Opossum" parent="." instance=ExtResource("8_ciuvd")]
+position = Vector2(-20, -129)
+
 [node name="Eagle" parent="." instance=ExtResource("6_8bv32")]
-position = Vector2(-493, -191)
-collision_layer = 6
-collision_mask = 1
+position = Vector2(-212, -264)

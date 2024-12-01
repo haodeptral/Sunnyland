@@ -107,30 +107,24 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxje7"]
-size = Vector2(20.5, 18.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_axp5u"]
-size = Vector2(33, 185)
+size = Vector2(49.5, 189)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5tvl"]
 size = Vector2(20, 2)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gl4fg"]
+
 [node name="Eagle" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 3
 script = ExtResource("1_lvmpx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.5, -1.75)
 scale = Vector2(0.975, 0.890244)
 sprite_frames = SubResource("SpriteFrames_b2x4s")
-animation = &"idle"
-frame_progress = 0.885773
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.25, 3.25)
-shape = SubResource("RectangleShape2D_qxje7")
+animation = &"attack"
+autoplay = "idle"
 
 [node name="WallDetector" type="RayCast2D" parent="."]
 target_position = Vector2(-33, 0)
@@ -142,16 +136,25 @@ target_position = Vector2(-13, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBoxComponent"]
 modulate = Color(1, 0.0431373, 1, 1)
-position = Vector2(-16.5, 93.5)
+position = Vector2(-24.25, 96)
 shape = SubResource("RectangleShape2D_axp5u")
 
 [node name="HurtBoxComponent" parent="." instance=ExtResource("4_72afm")]
-collision_layer = 1
+collision_mask = 16
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBoxComponent"]
 modulate = Color(0, 0.0980392, 0.0470588, 1)
 position = Vector2(-1, -8)
 shape = SubResource("RectangleShape2D_o5tvl")
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="Hitbox" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-5, 5)
+shape = SubResource("RectangleShape2D_gl4fg")
+
 [connection signal="chase_began" from="AttackBoxComponent" to="." method="_on_chase_began"]
 [connection signal="chase_ended" from="AttackBoxComponent" to="." method="_on_chase_ended"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

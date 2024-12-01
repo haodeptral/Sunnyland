@@ -164,7 +164,7 @@ animation = &"wall_hug"
 frame_progress = 0.390866
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_rvqtj")
 
 [node name="HitBoxComponent" parent="." instance=ExtResource("16_xqcqs")]
@@ -172,16 +172,14 @@ position = Vector2(-1, 14)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
 self_modulate = Color(0.780392, 0, 0.807843, 1)
-position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_sch5j")
 
 [node name="HurtBoxComponent" parent="." instance=ExtResource("17_tyw2w")]
-collision_mask = 32
+collision_mask = 36
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBoxComponent"]
-visible = false
 modulate = Color(0.360784, 0.847059, 0.105882, 1)
-position = Vector2(0, 4)
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_syf3k")
 
 [node name="ReviveTimer" type="Timer" parent="."]
@@ -257,6 +255,7 @@ wait_time = 0.2
 position = Vector2(0, 6)
 target_position = Vector2(8, 0)
 
+[connection signal="body_entered" from="HitBoxComponent" to="." method="_on_hit_box_component_body_entered"]
 [connection signal="timeout" from="ReviveTimer" to="." method="_on_revive_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="DashCoolDown" to="." method="_on_dash_cool_down_timeout"]

@@ -11,6 +11,8 @@ var gravity: float = 400.0
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 var checkpoint 
+var death: bool = false
+
 
 var scene_tree = get_tree()
 const MAX_HEALTH = 5
@@ -31,18 +33,16 @@ var can_dash = true
 
 func _ready():
 	start_position = global_position
+	checkpoint = start_position
 
 	
 func gravity_force(delta):
-	if wall_collider() and not is_on_floor() and velocity.y > 0:
+	if wall_collider() and not is_on_floor() and velocity.y > 0 and wall_jump_count <= 1:
 		#print("colided")
 		
 		velocity.y = 20
 		#print(velocity.y)
 		jump_count = 0
-		wall_jump_count+=1
-		if wall_jump_count == 3:
-			jump_count = 2
 		animated_sprite_2d.play("wall_hug")
 	else :
 		velocity.y += gravity * delta
@@ -75,9 +75,19 @@ func _physics_process(delta):
 			velocity.y -= jump_impulse
 	#DOUBLE JUMP
 	if Input.is_action_just_pressed("jump") and !is_on_floor() and jump_count < max_jump-1:
-			jump_count += 1
-			velocity.y = 0
-			velocity.y -= jump_impulse
+			if wall_collider():
+				if wall_jump_count > 1:
+					animated_sprite_2d.play("fall")
+					velocity.y += gravity * delta
+				else:
+					velocity.y = 0 
+					velocity.y -= jump_impulse
+					velocity.x -= 200 * input
+					wall_jump_count+=1
+			else:
+				jump_count += 1
+				velocity.y = 0	
+				velocity.y -= jump_impulse	
 	if not is_on_floor() and not wall_collider():
 		animated_sprite_2d.play(
 			"fall" if velocity.y > 0 else "jump"
@@ -85,6 +95,7 @@ func _physics_process(delta):
 	else:
 		if not wall_collider():
 			jump_count = 0
+			wall_jump_count = 0
 			animated_sprite_2d.play("run" if input else "idle")
 	
 	#DASH
@@ -104,21 +115,24 @@ func wall_collider():
 	
 
 
-func take_damage(amount, body) -> void:
-	if not damage_taken:
-		if body.global_position.y < get_node("HurtBoxComponent").global_position.y:
-			return
-		set_physics_process(false)
-		animated_sprite_2d.play("hurt")
-		var old_health = player_health
-		player_health -= amount
-		damage_taken = not damage_taken
-		Event.emit_signal("health_changed", old_health, player_health, MAX_HEALTH)
-		if player_health > 0:
-			$ReviveTimer.start()
-		else:
-			scene_tree.reload_current_scene()
-#			
+#func take_damage(amount, body) -> void:
+	#amount = 1
+	#if not damage_taken:
+		#if body.global_position.y < get_node("HurtBoxComponent").global_position.y:
+			#return
+		#set_physics_process(false)
+		#animated_sprite_2d.play("hurt")
+		#var old_health = player_health
+		#player_health -= amount
+		#damage_taken = not damage_taken
+		#Event.emit_signal("health_changed", old_health, player_health, MAX_HEALTH)
+		#if player_health > 0:
+			##scene_tree.paused = true
+			#$ReviveTimer.start()
+##			
+func die():
+	if death:
+		$ReviveTimer.start()
 
 func extra_live(value) -> void:
 	var old_health = player_health
@@ -126,6 +140,7 @@ func extra_live(value) -> void:
 	Event.emit_signal("health_changed", old_health, player_health, MAX_HEALTH)
 
 func _on_revive_timer_timeout():
+	#scene_tree.paused = false
 	global_position = checkpoint
 	animated_sprite_2d.play("idle")
 	damage_taken = false
@@ -138,3 +153,8 @@ func _on_dash_timer_timeout() -> void:
 
 func _on_dash_cool_down_timeout() -> void:
 	can_dash = true
+
+
+func _on_hit_box_component_body_entered(body: Node2D) -> void:
+	velocity.y -= jump_impulse
+	pass # Replace with function body.

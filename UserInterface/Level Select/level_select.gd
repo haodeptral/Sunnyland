@@ -31,7 +31,7 @@ func _on_home_button_down() -> void:
 
 func unlock_level():
 	var i:int = 0
-	while ( i < 15):
+	while ( i < 5):
 		#print(Event.level_data[i])
 		levelGrid.get_child(i).locked = Event.level_data[i+1]
 		i+=1

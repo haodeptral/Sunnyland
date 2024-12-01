@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://kktngreqjkox" path="res://Components/hit_box_component.tscn" id="3_v420w"]
 [ext_resource type="PackedScene" uid="uid://fj1tyjig8836" path="res://Props/safe_house.tscn" id="4_a5u7f"]
 [ext_resource type="PackedScene" uid="uid://cfacjssbdqjqc" path="res://Actors/Enemies/opossum.tscn" id="5_n6bsa"]
-[ext_resource type="PackedScene" uid="uid://dqtqq4cx7xyyk" path="res://Actors/Enemies/ant.tscn" id="6_mngvk"]
+[ext_resource type="PackedScene" uid="uid://b7gd7u7w7iisn" path="res://Actors/Enemies/ant.tscn" id="6_mngvk"]
 [ext_resource type="PackedScene" uid="uid://dmtmwqaeiqo5x" path="res://Actors/Enemies/frog.tscn" id="7_s8ju1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a0e4d"]
@@ -74,11 +74,9 @@ position = Vector2(3986, 267)
 
 [node name="Opossum" parent="Enemies" instance=ExtResource("5_n6bsa")]
 position = Vector2(368, 254)
-mob_point = null
 
 [node name="Opossum2" parent="Enemies" instance=ExtResource("5_n6bsa")]
 position = Vector2(408, 251)
-mob_point = null
 
 [node name="Ant" parent="Enemies" instance=ExtResource("6_mngvk")]
 position = Vector2(3052, 252)

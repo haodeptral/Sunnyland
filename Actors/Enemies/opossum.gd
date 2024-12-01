@@ -18,7 +18,7 @@ func _ready():
 func _on_attack_box_component_chase_began(new_direction):
 	animated_sprite_2d.speed_scale += FRAME_SPEED_SCALE
 	move_speed = RUN_SPEED
-	velocity.x = new_direction * move_speed
+	velocity.x = new_direction.x * move_speed
 
 
 func _on_attack_box_component_chase_ended():
