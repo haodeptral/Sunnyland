@@ -43,7 +43,7 @@ func take_damage(_amount, body) -> void:
 
 func jump_chase_movement() -> void:
 	if attack_enemy and is_on_floor() and not just_jumped:
-		velocity = Vector2(direction * move_speed, -jump_impulse)
+		velocity = Vector2( direction * move_speed, -jump_impulse)
 		animated_sprite_2d.play("jump")
 		just_jumped = true
 

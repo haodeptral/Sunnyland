@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dgnc6x1kkwm35"]
+[gd_scene load_steps=25 format=4 uid="uid://0pm1db2u5ps0"]
 
 [ext_resource type="Texture2D" uid="uid://bnsk14a70mp6a" path="res://assets/Sprites/Day-Platformer/PNG/tileset.png" id="1_62m6o"]
 [ext_resource type="PackedScene" uid="uid://kktngreqjkox" path="res://Components/hit_box_component.tscn" id="1_pgs57"]

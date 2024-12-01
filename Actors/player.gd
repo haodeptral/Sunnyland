@@ -115,21 +115,21 @@ func wall_collider():
 	
 
 
-#func take_damage(amount, body) -> void:
+func take_damage(amount, body) -> void:
 	#amount = 1
-	#if not damage_taken:
-		#if body.global_position.y < get_node("HurtBoxComponent").global_position.y:
-			#return
-		#set_physics_process(false)
-		#animated_sprite_2d.play("hurt")
-		#var old_health = player_health
-		#player_health -= amount
-		#damage_taken = not damage_taken
-		#Event.emit_signal("health_changed", old_health, player_health, MAX_HEALTH)
-		#if player_health > 0:
-			##scene_tree.paused = true
-			#$ReviveTimer.start()
-##			
+	if not damage_taken:
+		if body.global_position.y < get_node("HurtBoxComponent").global_position.y:
+			return
+		set_physics_process(false)
+		animated_sprite_2d.play("hurt")
+		var old_health = player_health
+		player_health -= amount
+		damage_taken = not damage_taken
+		Event.emit_signal("health_changed", old_health, player_health, MAX_HEALTH)
+		if player_health > 0:
+			#scene_tree.paused = true
+			$ReviveTimer.start()
+#			
 func die():
 	if death:
 		$ReviveTimer.start()

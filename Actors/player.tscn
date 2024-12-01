@@ -169,13 +169,15 @@ shape = SubResource("CapsuleShape2D_rvqtj")
 
 [node name="HitBoxComponent" parent="." instance=ExtResource("16_xqcqs")]
 position = Vector2(-1, 14)
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
 self_modulate = Color(0.780392, 0, 0.807843, 1)
+position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_sch5j")
 
 [node name="HurtBoxComponent" parent="." instance=ExtResource("17_tyw2w")]
-collision_mask = 36
+collision_mask = 32
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBoxComponent"]
 modulate = Color(0.360784, 0.847059, 0.105882, 1)
