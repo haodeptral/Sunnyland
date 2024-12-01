@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://cf16mhvm8jdr6"]
+[gd_scene load_steps=30 format=4 uid="uid://cf16mhvm8jdr6"]
 
 [ext_resource type="Texture2D" uid="uid://dari0tfr1p0a6" path="res://assets/Sprites/Day-Platformer/PNG/sky.png" id="1_o2ho6"]
 [ext_resource type="Texture2D" uid="uid://cpfyuh5ypsmnt" path="res://assets/Sprites/SunnyLand/tileset.png" id="1_vjju0"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bp133lbf78o5x" path="res://Props/Platforms/movable_platform.tscn" id="4_yr8ju"]
 [ext_resource type="Texture2D" uid="uid://dfeb4syig6q2c" path="res://assets/Sprites/Trees/pine.png" id="6_yt1jl"]
 [ext_resource type="Texture2D" uid="uid://b7b387bnv08e0" path="res://assets/Sprites/Trees/tree.png" id="7_bddgc"]
-[ext_resource type="PackedScene" uid="uid://dpy6216p2r1hg" path="res://Effect/kill_zone.tscn" id="10_h76a4"]
 [ext_resource type="PackedScene" uid="uid://fj1tyjig8836" path="res://Props/safe_house.tscn" id="11_18pdb"]
 [ext_resource type="PackedScene" uid="uid://ckt56b0r56sll" path="res://Actors/player.tscn" id="13_1p15w"]
 [ext_resource type="Script" path="res://Services/checkpoint_manager.gd" id="14_p6iuc"]
@@ -1163,40 +1162,6 @@ sources/2 = SubResource("TileSetAtlasSource_hdm5q")
 sources/3 = SubResource("TileSetAtlasSource_tke6t")
 sources/0 = SubResource("TileSetAtlasSource_cxjhq")
 
-[sub_resource type="GDScript" id="GDScript_dteai"]
-script/source = "
-extends Area2D
-
-
-var checkpoint_manager
-var player
-
-func _ready() -> void:
-	checkpoint_manager = get_parent().get_parent().get_parent().get_node(\"CheckpointManager\")
-	player = get_parent().get_parent().get_parent().get_node(\"Player\")
-func _on_body_entered(body) -> void:
-	if body.is_in_group(\"Player\"):
-		kill_player()
-func kill_player():
-	$Timer.start()
-
-
-func _on_timer_timeout() -> void:
-	player.position = checkpoint_manager.last_pos
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtfhe"]
-size = Vector2(65, 9)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k32tl"]
-size = Vector2(47, 7)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6tre"]
-size = Vector2(46, 8)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5y57r"]
-size = Vector2(26, 10)
-
 [node name="Level5" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -1256,31 +1221,6 @@ rotation = -1.5708
 position = Vector2(4429, -1704)
 
 [node name="spike1" type="Node" parent="."]
-
-[node name="KillZone" parent="spike1" instance=ExtResource("10_h76a4")]
-script = SubResource("GDScript_dteai")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="spike1/KillZone"]
-position = Vector2(128.5, 652.5)
-shape = SubResource("RectangleShape2D_rtfhe")
-
-[node name="KillZone2" parent="spike1" instance=ExtResource("10_h76a4")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="spike1/KillZone2"]
-position = Vector2(233, 634.5)
-shape = SubResource("RectangleShape2D_k32tl")
-
-[node name="KillZone3" parent="spike1" instance=ExtResource("10_h76a4")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="spike1/KillZone3"]
-position = Vector2(376, 651)
-shape = SubResource("RectangleShape2D_h6tre")
-
-[node name="KillZone4" parent="spike1" instance=ExtResource("10_h76a4")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="spike1/KillZone4"]
-position = Vector2(1071, -116)
-shape = SubResource("RectangleShape2D_5y57r")
 
 [node name="spike2" type="Node" parent="."]
 
