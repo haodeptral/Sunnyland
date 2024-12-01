@@ -1,10 +1,10 @@
-[gd_scene load_steps=35 format=4 uid="uid://cf16mhvm8jdr6"]
+[gd_scene load_steps=36 format=4 uid="uid://cf16mhvm8jdr6"]
 
 [ext_resource type="Texture2D" uid="uid://dari0tfr1p0a6" path="res://assets/Sprites/Day-Platformer/PNG/sky.png" id="1_o2ho6"]
-[ext_resource type="Texture2D" uid="uid://cbjvnw4je0p3x" path="res://assets/Sprites/Tiles/tileset.png" id="1_vjju0"]
+[ext_resource type="Texture2D" uid="uid://cpfyuh5ypsmnt" path="res://assets/Sprites/SunnyLand/tileset.png" id="1_vjju0"]
 [ext_resource type="PackedScene" uid="uid://c60dovlbpwlby" path="res://UserInterface/hud.tscn" id="2_bnp4j"]
 [ext_resource type="Texture2D" uid="uid://bm4n2fxeiuwk5" path="res://assets/Sprites/Day-Platformer/PNG/trees.png" id="2_cqxeb"]
-[ext_resource type="Texture2D" uid="uid://b0js3ucgpfksa" path="res://assets/Sprites/Tiles/props.png" id="2_sxieg"]
+[ext_resource type="Texture2D" uid="uid://87lh1ph8jhtv" path="res://assets/Sprites/SunnyLand/props.png" id="2_sxieg"]
 [ext_resource type="Texture2D" uid="uid://duqr2eulnvebf" path="res://assets/Sprites/Day-Platformer/PNG/clouds.png" id="3_05dxr"]
 [ext_resource type="PackedScene" uid="uid://bp133lbf78o5x" path="res://Props/Platforms/movable_platform.tscn" id="4_yr8ju"]
 [ext_resource type="PackedScene" uid="uid://b0wffos4ripsm" path="res://Props/Spikes/spike_bottom.tscn" id="5_56rsd"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://fj1tyjig8836" path="res://Props/safe_house.tscn" id="11_18pdb"]
 [ext_resource type="PackedScene" uid="uid://kktngreqjkox" path="res://Components/hit_box_component.tscn" id="12_ooj7l"]
 [ext_resource type="PackedScene" uid="uid://ckt56b0r56sll" path="res://Actors/player.tscn" id="13_1p15w"]
+[ext_resource type="PackedScene" uid="uid://bfwl8c1mha78x" path="res://Effect/checkpoint.tscn" id="15_xbuqd"]
 
 [sub_resource type="TileSet" id="TileSet_vdnaa"]
 
@@ -1394,7 +1395,7 @@ position = Vector2(4752, -1910)
 collision_layer = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/HitBoxComponent"]
-position = Vector2(1077, 317)
+position = Vector2(1093, 414)
 shape = SubResource("RectangleShape2D_5on5p")
 
 [node name="HitBoxComponent2" parent="WorldBoundaries" instance=ExtResource("12_ooj7l")]
@@ -1402,7 +1403,7 @@ position = Vector2(1388, -13)
 collision_layer = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/HitBoxComponent2"]
-position = Vector2(0, 3.5)
+position = Vector2(8, 126)
 shape = SubResource("RectangleShape2D_5on5p")
 
 [node name="HitBoxComponent3" parent="WorldBoundaries" instance=ExtResource("12_ooj7l")]
@@ -1410,7 +1411,7 @@ position = Vector2(2283, -546)
 collision_layer = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/HitBoxComponent3"]
-position = Vector2(-3.5, 0)
+position = Vector2(-6, 61)
 shape = SubResource("RectangleShape2D_1tcxo")
 
 [node name="HitBoxComponent4" parent="WorldBoundaries" instance=ExtResource("12_ooj7l")]
@@ -1418,6 +1419,7 @@ position = Vector2(3167, -789)
 collision_layer = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/HitBoxComponent4"]
+position = Vector2(-11, 102)
 shape = SubResource("RectangleShape2D_5on5p")
 
 [node name="HitBoxComponent5" parent="WorldBoundaries" instance=ExtResource("12_ooj7l")]
@@ -1425,7 +1427,7 @@ position = Vector2(4091, -1397)
 collision_layer = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/HitBoxComponent5"]
-position = Vector2(1, 28.875)
+position = Vector2(22, 124)
 shape = SubResource("RectangleShape2D_5on5p")
 
 [node name="HitBoxComponent6" parent="WorldBoundaries" instance=ExtResource("12_ooj7l")]
@@ -1433,6 +1435,7 @@ position = Vector2(3745, -1034)
 collision_layer = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/HitBoxComponent6"]
+position = Vector2(1, 151)
 shape = SubResource("RectangleShape2D_geeay")
 
 [node name="HitBoxComponent7" parent="WorldBoundaries" instance=ExtResource("12_ooj7l")]
@@ -1440,7 +1443,7 @@ position = Vector2(4546, -1565)
 collision_layer = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/HitBoxComponent7"]
-position = Vector2(9.125, 4)
+position = Vector2(51, 130)
 shape = SubResource("RectangleShape2D_geeay")
 
 [node name="Bound_Left" type="StaticBody2D" parent="WorldBoundaries"]
@@ -1464,7 +1467,20 @@ position = Vector2(643, 423)
 collision_layer = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/HitBoxComponent8"]
+position = Vector2(2, 113)
 shape = SubResource("RectangleShape2D_wmqdo")
+
+[node name="Checkpoint" parent="." instance=ExtResource("15_xbuqd")]
+position = Vector2(831, 165)
+
+[node name="Checkpoint4" parent="." instance=ExtResource("15_xbuqd")]
+position = Vector2(181, 554)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("15_xbuqd")]
+position = Vector2(3338, -1084)
+
+[node name="Checkpoint3" parent="." instance=ExtResource("15_xbuqd")]
+position = Vector2(1259, -413)
 
 [node name="Player" parent="." instance=ExtResource("13_1p15w")]
 position = Vector2(59, 566)
