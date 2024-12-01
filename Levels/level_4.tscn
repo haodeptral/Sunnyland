@@ -1478,11 +1478,9 @@ position = Vector2(3986, 267)
 
 [node name="Opossum" parent="Enemies" instance=ExtResource("4_onsql")]
 position = Vector2(368, 254)
-mob_point = null
 
 [node name="Opossum2" parent="Enemies" instance=ExtResource("4_onsql")]
 position = Vector2(408, 251)
-mob_point = null
 
 [node name="Ant" parent="Enemies" instance=ExtResource("11_lrkg7")]
 position = Vector2(3052, 252)
@@ -1492,10 +1490,6 @@ position = Vector2(3252, 224)
 
 [node name="Frog" parent="Enemies" instance=ExtResource("5_6awvx")]
 position = Vector2(3556, 244)
-jump_impulse = null
-mob_point = null
 
 [node name="Frog2" parent="Enemies" instance=ExtResource("5_6awvx")]
 position = Vector2(3756, 232)
-jump_impulse = null
-mob_point = null

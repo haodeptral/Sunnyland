@@ -1420,11 +1420,8 @@ tile_set = SubResource("TileSet_bis3d")
 collision_visibility_mode = 2
 navigation_visibility_mode = 2
 
-[node name="Player" parent="." instance=ExtResource("5_8f3aa")]
-position = Vector2(325, 473)
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
+[node name="SafeHouse" parent="." instance=ExtResource("13_w5jpp")]
+position = Vector2(3986, 267)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -1461,7 +1458,7 @@ collision_layer = 48
 shape = SubResource("WorldBoundaryShape2D_sq84s")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(325, 473)
+position = Vector2(134, 431)
 offset = Vector2(50, 0)
 zoom = Vector2(2, 2)
 limit_left = 0
@@ -1470,9 +1467,6 @@ limit_bottom = 600
 limit_smoothed = true
 position_smoothing_enabled = true
 drag_left_margin = 0.02
-
-[node name="SafeHouse" parent="." instance=ExtResource("13_w5jpp")]
-position = Vector2(3986, 267)
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -1490,3 +1484,9 @@ position = Vector2(3756, 232)
 
 [node name="Checkpoint" parent="." instance=ExtResource("7_lakw7")]
 position = Vector2(1615, 405)
+
+[node name="Player" parent="." instance=ExtResource("5_8f3aa")]
+position = Vector2(134, 431)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")

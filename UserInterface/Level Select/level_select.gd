@@ -23,7 +23,7 @@ func setup_level_box() -> void:
 		box.locked = true
 		Event.level_data[box.level_num] = true  # Save the locked state
 	Event.level_data[1] = false  # Unlock level 1
-	levelGrid.get_child(0).locked = false
+	#levelGrid.get_child(0).locked = false
 	unlock_level()
 	print("Initialized level_data:", Event.level_data)
 func _on_home_button_down() -> void:

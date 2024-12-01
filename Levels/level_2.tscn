@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://3yxrd6vs71m7"]
+[gd_scene load_steps=42 format=4 uid="uid://3yxrd6vs71m7"]
 
 [ext_resource type="PackedScene" uid="uid://ckt56b0r56sll" path="res://Actors/player.tscn" id="1_jbuxd"]
 [ext_resource type="Texture2D" uid="uid://dari0tfr1p0a6" path="res://assets/Sprites/Day-Platformer/PNG/sky.png" id="1_ntgcw"]
@@ -9,11 +9,17 @@
 [ext_resource type="PackedScene" uid="uid://fj1tyjig8836" path="res://Props/safe_house.tscn" id="4_a5u7f"]
 [ext_resource type="Texture2D" uid="uid://cpfyuh5ypsmnt" path="res://assets/Sprites/SunnyLand/tileset.png" id="4_dosvh"]
 [ext_resource type="Texture2D" uid="uid://87lh1ph8jhtv" path="res://assets/Sprites/SunnyLand/props.png" id="5_3cjhm"]
+[ext_resource type="PackedScene" uid="uid://cfacjssbdqjqc" path="res://Actors/Enemies/opossum.tscn" id="5_n6bsa"]
 [ext_resource type="Texture2D" uid="uid://dfeb4syig6q2c" path="res://assets/Sprites/Trees/pine.png" id="6_ganaw"]
 [ext_resource type="Texture2D" uid="uid://b7b387bnv08e0" path="res://assets/Sprites/Trees/tree.png" id="7_cjg2u"]
 [ext_resource type="PackedScene" uid="uid://b0wffos4ripsm" path="res://Props/Spikes/spike_bottom.tscn" id="7_s1mxq"]
+[ext_resource type="PackedScene" uid="uid://dmtmwqaeiqo5x" path="res://Actors/Enemies/frog.tscn" id="7_s8ju1"]
 [ext_resource type="PackedScene" uid="uid://bp133lbf78o5x" path="res://Props/Platforms/movable_platform.tscn" id="8_cnopd"]
+[ext_resource type="PackedScene" uid="uid://epmt8mbt3mni" path="res://Collectables/cherry.tscn" id="11_rscj7"]
+[ext_resource type="PackedScene" uid="uid://vug2hj4ifnrd" path="res://Collectables/gem.tscn" id="12_qx1aq"]
 [ext_resource type="PackedScene" uid="uid://bfwl8c1mha78x" path="res://Effect/checkpoint.tscn" id="15_4dxov"]
+[ext_resource type="PackedScene" uid="uid://dwocwytiswkrm" path="res://Props/Platforms/moving_platform.tscn" id="15_xv7mp"]
+[ext_resource type="PackedScene" uid="uid://c4uwonqyob7u" path="res://Actors/Enemies/Eagle/eagle.tscn" id="16_x11ne"]
 
 [sub_resource type="TileSet" id="TileSet_vdnaa"]
 
@@ -1113,13 +1119,6 @@ position = Vector2(4154, -1495)
 [node name="MovablePlatform6" parent="moveable" instance=ExtResource("8_cnopd")]
 position = Vector2(4064, -1494)
 
-[node name="MovablePlatform7" parent="moveable" instance=ExtResource("8_cnopd")]
-position = Vector2(4501, -1756)
-rotation = -1.5708
-
-[node name="MovablePlatform8" parent="moveable" instance=ExtResource("8_cnopd")]
-position = Vector2(4429, -1704)
-
 [node name="spike1" type="Node" parent="."]
 
 [node name="SpikeBottom" parent="spike1" instance=ExtResource("7_s1mxq")]
@@ -1495,3 +1494,61 @@ position = Vector2(59, 566)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2(0, 2)
 remote_path = NodePath("../../Camera2D")
+
+[node name="MovingPlatform" parent="." instance=ExtResource("15_xv7mp")]
+position = Vector2(4334, -1736)
+
+[node name="MovingPlatform2" parent="." instance=ExtResource("15_xv7mp")]
+position = Vector2(4436, -1788)
+
+[node name="Collectibles" type="Node" parent="."]
+
+[node name="Cherry" parent="Collectibles" instance=ExtResource("11_rscj7")]
+position = Vector2(3316, -1482)
+
+[node name="Cherry2" parent="Collectibles" instance=ExtResource("11_rscj7")]
+position = Vector2(2623, -998)
+
+[node name="Gem" parent="Collectibles" instance=ExtResource("12_qx1aq")]
+position = Vector2(3079, -925)
+
+[node name="Gem2" parent="Collectibles" instance=ExtResource("12_qx1aq")]
+position = Vector2(3161, -972)
+
+[node name="Gem3" parent="Collectibles" instance=ExtResource("12_qx1aq")]
+position = Vector2(3239, -1022)
+
+[node name="Gem4" parent="Collectibles" instance=ExtResource("12_qx1aq")]
+position = Vector2(3603, -1629)
+
+[node name="Gem5" parent="Collectibles" instance=ExtResource("12_qx1aq")]
+position = Vector2(4333, -1758)
+
+[node name="Gem6" parent="Collectibles" instance=ExtResource("12_qx1aq")]
+position = Vector2(4435, -1809)
+
+[node name="Cherry3" parent="Collectibles" instance=ExtResource("11_rscj7")]
+position = Vector2(559, 373)
+
+[node name="Gem7" parent="Collectibles" instance=ExtResource("12_qx1aq")]
+position = Vector2(829, 167)
+
+[node name="Gem8" parent="Collectibles" instance=ExtResource("12_qx1aq")]
+position = Vector2(1144, -300)
+
+[node name="Gem9" parent="Collectibles" instance=ExtResource("12_qx1aq")]
+position = Vector2(1312, -167)
+
+[node name="Enemy" type="Node" parent="."]
+
+[node name="Eagle" parent="Enemy" instance=ExtResource("16_x11ne")]
+position = Vector2(2602, -853)
+
+[node name="Frog" parent="Enemy" instance=ExtResource("7_s8ju1")]
+position = Vector2(2270, -765)
+
+[node name="Opossum" parent="Enemy" instance=ExtResource("5_n6bsa")]
+position = Vector2(2727, -991)
+
+[node name="Opossum2" parent="Enemy" instance=ExtResource("5_n6bsa")]
+position = Vector2(3870, -1469)

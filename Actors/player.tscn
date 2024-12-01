@@ -155,6 +155,7 @@ region = Rect2(3502, 537, 181, 189)
 size = Vector2(181, 189)
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 5
 collision_layer = 2
 script = ExtResource("1_7dgss")
 

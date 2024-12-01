@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://c4uwonqyob7u"]
+[gd_scene load_steps=23 format=3 uid="uid://c4uwonqyob7u"]
 
 [ext_resource type="Script" path="res://Actors/Enemies/Eagle/eagle.gd" id="1_lvmpx"]
 [ext_resource type="Texture2D" uid="uid://ck6ndipim7atl" path="res://assets/Sprites/Forest/Forest Enemies Add On Pack/eagle/eagle-sheet.png" id="2_dxsyn"]
 [ext_resource type="PackedScene" uid="uid://d36xic1t2gcbh" path="res://Components/attack_box_component.tscn" id="3_j6h35"]
 [ext_resource type="PackedScene" uid="uid://b5gugbvrilk8m" path="res://Components/hurt_box_component.tscn" id="4_72afm"]
+[ext_resource type="PackedScene" uid="uid://kktngreqjkox" path="res://Components/hit_box_component.tscn" id="5_eknrx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7odei"]
 atlas = ExtResource("2_dxsyn")
@@ -113,7 +114,10 @@ size = Vector2(49.5, 189)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5tvl"]
 size = Vector2(20, 2)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gl4fg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oy2qv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ydyn"]
+size = Vector2(19, 14)
 
 [node name="Eagle" type="CharacterBody2D"]
 collision_layer = 4
@@ -147,14 +151,15 @@ modulate = Color(0, 0.0980392, 0.0470588, 1)
 position = Vector2(-1, -8)
 shape = SubResource("RectangleShape2D_o5tvl")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 2
+[node name="HitBoxComponent" parent="." instance=ExtResource("5_eknrx")]
 
-[node name="Hitbox" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-5, 5)
-shape = SubResource("RectangleShape2D_gl4fg")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+position = Vector2(-6, 5)
+shape = SubResource("RectangleShape2D_oy2qv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_5ydyn")
 
 [connection signal="chase_began" from="AttackBoxComponent" to="." method="_on_chase_began"]
 [connection signal="chase_ended" from="AttackBoxComponent" to="." method="_on_chase_ended"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
