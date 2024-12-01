@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=3 uid="uid://cosy4vue4g612"]
+
+[ext_resource type="PackedScene" uid="uid://kktngreqjkox" path="res://Components/hit_box_component.tscn" id="1_pgs57"]
+[ext_resource type="PackedScene" uid="uid://ckt56b0r56sll" path="res://Actors/player.tscn" id="2_66qul"]
+[ext_resource type="PackedScene" uid="uid://cfacjssbdqjqc" path="res://Actors/Enemies/opossum.tscn" id="4_onsql"]
+[ext_resource type="PackedScene" uid="uid://dmtmwqaeiqo5x" path="res://Actors/Enemies/frog.tscn" id="5_6awvx"]
+[ext_resource type="PackedScene" uid="uid://c60dovlbpwlby" path="res://UserInterface/hud.tscn" id="6_k46ly"]
+[ext_resource type="PackedScene" uid="uid://dqtqq4cx7xyyk" path="res://Actors/Enemies/ant.tscn" id="11_lrkg7"]
+[ext_resource type="PackedScene" uid="uid://fj1tyjig8836" path="res://Props/safe_house.tscn" id="13_w5jpp"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a0e4d"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_acfv2"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sq84s"]
+
+[node name="Level_4" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_66qul")]
+position = Vector2(325, 473)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("6_k46ly")]
+offset_left = -82.0
+offset_top = -20.0
+offset_right = -82.0
+offset_bottom = -20.0
+
+[node name="WorldBoundaries" type="Node" parent="."]
+
+[node name="Left" type="StaticBody2D" parent="WorldBoundaries"]
+position = Vector2(98, 248)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/Left"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_a0e4d")
+
+[node name="Right" type="StaticBody2D" parent="WorldBoundaries"]
+position = Vector2(4129, 221)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/Right"]
+position = Vector2(11, 0)
+rotation = 4.71239
+shape = SubResource("WorldBoundaryShape2D_acfv2")
+
+[node name="HitBoxComponent" parent="WorldBoundaries" instance=ExtResource("1_pgs57")]
+position = Vector2(673, 591)
+collision_layer = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/HitBoxComponent"]
+shape = SubResource("WorldBoundaryShape2D_sq84s")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(325, 473)
+offset = Vector2(50, 0)
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 112
+limit_bottom = 600
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_left_margin = 0.02
+
+[node name="SafeHouse" parent="." instance=ExtResource("13_w5jpp")]
+position = Vector2(3986, 267)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Opossum" parent="Enemies" instance=ExtResource("4_onsql")]
+position = Vector2(368, 254)
+mob_point = null
+
+[node name="Opossum2" parent="Enemies" instance=ExtResource("4_onsql")]
+position = Vector2(408, 251)
+mob_point = null
+
+[node name="Ant" parent="Enemies" instance=ExtResource("11_lrkg7")]
+position = Vector2(3052, 252)
+
+[node name="Ant2" parent="Enemies" instance=ExtResource("11_lrkg7")]
+position = Vector2(3252, 224)
+
+[node name="Frog" parent="Enemies" instance=ExtResource("5_6awvx")]
+position = Vector2(3556, 244)
+
+[node name="Frog2" parent="Enemies" instance=ExtResource("5_6awvx")]
+position = Vector2(3756, 232)

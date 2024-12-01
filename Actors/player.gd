@@ -32,11 +32,10 @@ func _ready():
 	
 func gravity_force(delta):
 	if wall_collider():
-		jump_count = 0
 		#print("colided")
-		#velocity.y = 0
+		velocity.y = 0
 		velocity.y = 20
-		#print(velocity.y)
+		print(velocity.y)
 		animated_sprite_2d.play("wall_hug")
 	else :
 		velocity.y += gravity * delta
@@ -66,23 +65,19 @@ func _physics_process(delta):
 		
 	#JUMP
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-			#print("normal jump")
 			jump_count += 1
-			#print(jump_count)
 			velocity.y -= jump_impulse
 	#DOUBLE JUMP
-	if Input.is_action_just_pressed("jump") and !is_on_floor() and jump_count < max_jump -1:
-		#print("double jump")
-		#print(jump_count)
-		jump_count += 1
-		velocity.y = 0
-		velocity.y -= jump_impulse
+	if Input.is_action_just_pressed("jump") and !is_on_floor() and jump_count < max_jump:
+			jump_count += 1
+			velocity.y = 0
+			velocity.y -= jump_impulse
 	if not is_on_floor() and not wall_collider():
 		animated_sprite_2d.play(
 			"fall" if velocity.y > 0 else "jump"
 			)
 	else:
-		if is_on_floor() and not wall_collider():
+		if not wall_collider():
 			jump_count = 0
 			animated_sprite_2d.play("run" if input else "idle")
 	
