@@ -22,13 +22,7 @@ Platform: Android / iOS
 
 🚀 Installation
 
-Clone this repository:
-
-git clone https://github.com/yourusername/celeste-inspired-game.git
-
-Open the project in Godot.
-
-Export to your desired platform.
+Clone this repository and run the apk file
 
 📷 Screenshots
 
