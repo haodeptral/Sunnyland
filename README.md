@@ -35,7 +35,7 @@ If you want to contribute, feel free to fork the repo and submit a pull request.
 
 🏆 Credits
 
-Game Design & Development: Hao Hoang
+Game Design & Development: Hao Hoang, Minh Le, Dinh Khoa and Minh Pham
 
 Inspired by: Celeste (by Maddy Makes Games)
 
