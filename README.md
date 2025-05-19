@@ -1,10 +1,10 @@
 # ⭐ Celeste-Inspired Platformer – A 2D Mobile Game Built with Godot
 
 
-🎮 Celeste-Inspired 2D Mobile Game
+## 🎮 Celeste-Inspired 2D Mobile Game
 A fast-paced 2D platformer inspired by Celeste, built using Godot Engine. The game features fluid movement, precise jumping, and challenging levels designed to test your skills!
 
-📌 Features
+## 📌 Features
 Smooth platforming mechanics: Run, jump, and dash your way through challenging levels.
 
 Pixel-art aesthetic: Simple but beautiful visual style.
@@ -15,7 +15,7 @@ Multiple levels: Progressively harder stages to test your platforming skills.
 
 Gamepad & Touchscreen Support: Play with ease on mobile devices.
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 
 Engine: Godot 4.x
 
@@ -23,7 +23,7 @@ Language: GDScript
 
 Platform: Android
 
-🚀 Installation
+## 🚀 Installation
 
 Clone this repository and run the apk file
 
@@ -32,11 +32,11 @@ Clone this repository and run the apk file
 ![image](https://github.com/user-attachments/assets/e5ac1997-9ccf-48f3-a996-b165f3e75ff7)
 ![image](https://github.com/user-attachments/assets/0eee7cfc-cd4d-4655-92c5-6c830dc0b6d7)
 
-🤝 Contributing
+## 🤝 Contributing
 
 If you want to contribute, feel free to fork the repo and submit a pull request.
 
-🏆 Credits
+## 🏆 Credits
 
 Game Design & Development: Hao Hoang, Minh Le, Dinh Khoa and Minh Pham
 
