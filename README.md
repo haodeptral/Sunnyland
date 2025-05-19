@@ -1,4 +1,4 @@
-#Sunny Land 2D platformer game
+# ⭐ Celeste-Inspired Platformer – A 2D Mobile Game Built with Godot
 
 
 🎮 Celeste-Inspired 2D Mobile Game
@@ -21,7 +21,7 @@ Engine: Godot 4.x
 
 Language: GDScript
 
-Platform: Android / iOS
+Platform: Android
 
 🚀 Installation
 
